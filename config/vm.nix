@@ -8,6 +8,9 @@ with lib;
   ];
 
   users.users.meros = {
+    createHome = true;
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     password = "";
   };
 
@@ -24,7 +27,7 @@ with lib;
   };
 
   # Use good amount of memory
-  virtualisation.memorySize = lib.mkDefault 4096;
+  virtualisation.memorySize = lib.mkDefault 2048;
 
   # nopasswd
   security.sudo.wheelNeedsPassword = false;
