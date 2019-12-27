@@ -4,6 +4,8 @@ with lib;
 
 {
   imports = [
+    ./branding.nix
+    ./services.nix
   ];
 
   nixpkgs.overlays = [
