@@ -13,7 +13,7 @@ let
   srcData = fromJSON (readFile ./source.json);
   name = "merculator";
   src = fetchFromGitHub {
-    repo = nemo;
+    repo = name;
     owner = "mercode-org";
     rev = srcData.rev;
     sha256 = srcData.sha256;
