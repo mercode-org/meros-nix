@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-  repos="mercode-jbrawn mercode-bazik papirus-mer-icon-theme"
+  repos="mercode-jbrawn mercode-bazik mer-os-backgrounds papirus-mer-icon-theme"
 else
   repos="$*"
 fi
