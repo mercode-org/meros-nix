@@ -20,6 +20,6 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/share/icons
-    cp -rp $PWD/papirus-mer $out/share/icons/papirus-mer
+    cp -rp $PWD/Papirus-Mer $out/share/icons/papirus-mer
   '';
 }
