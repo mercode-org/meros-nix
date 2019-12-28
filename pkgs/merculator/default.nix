@@ -11,25 +11,25 @@ with (builtins);
 
 let
   srcData = fromJSON (readFile ./source.json);
-  executableName = "merculator";
+  name = "merculator";
   src = fetchFromGitHub {
-    repo = "merculator";
+    repo = nemo;
     owner = "mercode-org";
     rev = srcData.rev;
     sha256 = srcData.sha256;
   };
 in
 mkNode { root = src; nodejs = nodejs-12_x; } rec {
-  pname = "merculator";
+  pname = name;
 
   nativeBuildInputs = [
     makeWrapper
   ];
 
   desktopItem = makeDesktopItem {
-    name = "merculator";
-    exec = executableName;
-    icon = "calculator";
+    name = name;
+    exec = name;
+    icon = name;
     desktopName = "Merculator";
     genericName = "Calculator";
     comment = meta.description;
@@ -37,9 +37,10 @@ mkNode { root = src; nodejs = nodejs-12_x; } rec {
   };
 
   installPhase = ''
-    makeWrapper '${electron_5}/bin/electron' "$out/bin/${executableName}" \
+    makeWrapper '${electron_5}/bin/electron' "$out/bin/${name}" \
       --add-flags "$out"
 
+    install -D icon.png $out/share/icons/hicolor/520x520/apps/merculator.png
     mkdir -p "$out/share/applications"
     ln -s "${desktopItem}/share/applications" "$out/share/applications"
   '';

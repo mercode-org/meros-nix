@@ -24,6 +24,7 @@ with lib;
     shotwell
     font-manager
     # qpaeq # https://github.com/NixOS/nixpkgs/pull/76321
+    merculator
 
     # utils
     htop
