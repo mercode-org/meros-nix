@@ -20,6 +20,6 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/share/wallpapers
-    cp -rp $PWD $out/share/wallpapers/meros-backgrounds
+    cp -rp $PWD/wallpapers $out/share/wallpapers/meros-backgrounds
   '';
 }

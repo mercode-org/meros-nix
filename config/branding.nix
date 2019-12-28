@@ -8,7 +8,7 @@ with lib;
   # NOTE: this file shouldn't enable anything, just set the branding attributes
 
   services.xserver.displayManager.lightdm = {
-    background = "${pkgs.meros-backgrounds}/share/wallpapers/1.jpg";
+    background = "${pkgs.meros-backgrounds}/share/wallpapers/meros-backgrounds/3.jpg";
     greeters.gtk = {
       iconTheme = {
         package = pkgs.papirus-mer;
