@@ -22,8 +22,11 @@ with lib;
     };
   };
 
+  security.pam.makeHomeDir.skelDirectory = pkgs.meros-skel;
+
   environment.systemPackages = with pkgs; [
     meros-backgrounds
+    meros-skel
     mercode-bazik
     mercode-jbrawn
     papirus-mer
