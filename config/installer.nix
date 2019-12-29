@@ -21,15 +21,16 @@ with lib;
 
   services.xserver.displayManager = {
     lightdm = {
-      enable = lib.mkForce false;
+      enable = false;
     };
 
-    auto = {
+    sddm = {
       enable = true;
-      user = "nixos";
+      autoLogin = {
+        enable = true;
+        user = "nixos";
+      };
     };
-
-    job.execCmd = lib.mkForce "";
   };
 
   environment.systemPackages = with pkgs; [
