@@ -4,7 +4,7 @@ let
     builtins.listToAttrs(
       builtins.concatMap iter (builtins.attrNames set)
     );
-  def = lib.mkOverride 1300;
+  def = lib.mkOverride 250;
   makeDefault = attrs:
     recursiveIterateRecreate attrs (key:
       let
