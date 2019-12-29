@@ -3,8 +3,6 @@
 with lib;
 
 {
-  imports = [];
-
   # NOTE: this file shouldn't enable anything, just set the branding attributes
 
   services.xserver.displayManager.lightdm = {

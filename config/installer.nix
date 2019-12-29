@@ -19,9 +19,17 @@ with lib;
     });
   '';
 
-  services.xserver.displayManager.lightdm.autoLogin = {
-    enable = true;
-    user = "nixos";
+  services.xserver.displayManager = {
+    lightdm = {
+      enable = lib.mkForce false;
+    };
+
+    auto = {
+      enable = true;
+      user = "nixos";
+    };
+
+    job.execCmd = lib.mkForce "";
   };
 
   environment.systemPackages = with pkgs; [

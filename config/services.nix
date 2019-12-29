@@ -1,10 +1,9 @@
 { config, lib, pkgs, ... }:
 
 with lib;
+with (import ./util.nix lib);
 
-{
-  imports = [];
-
+makeDefault {
   # Enable GPG agent
   programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 

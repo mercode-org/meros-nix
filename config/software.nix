@@ -17,7 +17,7 @@ with lib;
 
     # apps
     # nemo (needs finishe cinnamon port by @mkg20001)
-    freeoffice
+    libreoffice # freeoffice
     flameshot
     atom
     wine
