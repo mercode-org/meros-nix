@@ -30,8 +30,8 @@ mkNode { root = src; nodejs = nodejs-12_x; } rec {
     name = name;
     exec = name;
     icon = name;
-    desktopName = "DistroCards";
-    genericName = "DistroCards";
+    genericName = "Distrocards";
+    desktopName = "Distrocards";
     comment = meta.description;
     categories = "Games;";
   };

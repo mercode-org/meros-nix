@@ -12,6 +12,12 @@ in
   merculator = pkgs.callPackage ./merculator {
     inherit mkNode;
   };
+  meros-welcome = pkgs.callPackage ./meros-welcome-legacy {
+    inherit mkNode;
+  };
+  distrocards = pkgs.callPackage ./distrocards {
+    inherit mkNode;
+  };
   mercode-bazik = pkgs.callPackage ./mercode-bazik { };
   mercode-jbrawn = pkgs.callPackage ./mercode-jbrawn { };
   meros-backgrounds = pkgs.callPackage ./mer-os-backgrounds { };
