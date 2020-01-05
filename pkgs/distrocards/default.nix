@@ -35,12 +35,16 @@ mkNode { root = src; nodejs = nodejs-12_x; } rec {
     categories = "Games;";
   };
 
-  installPhase = ''
+   installPhase = ''
+    runHook preInstall
+
     makeWrapper '${electron_6}/bin/electron' "$out/bin/${name}" \
       --add-flags "$out"
 
     install -D assets/icon.png $out/share/icons/hicolor/520x520/apps/distrocards.png
     install -D "${desktopItem}/share/applications/${name}.desktop" "$out/share/applications/${name}.desktop"
+
+    runHook postInstall
   '';
 
   meta = with stdenv.lib; {
