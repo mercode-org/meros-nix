@@ -5,6 +5,7 @@
 , makeWrapper
 , electron_6
 , makeDesktopItem
+, bash
 }:
 
 with (builtins);
@@ -38,11 +39,11 @@ mkNode { root = src; nodejs = nodejs-12_x; production = false; } rec {
   installPhase = ''
     runHook preInstall
 
-    cd $out
-    bash build.sh
+    patchShebangs build.sh
+    ${bash}/bin/bash -ex ./build.sh
     mv $out ''${out}d
     mv ''${out}d/electronapp $out
-    cd $out
+    # cd $out
 
     makeWrapper '${electron_6}/bin/electron' "$out/bin/${name}" \
       --add-flags "$out/app.js"
