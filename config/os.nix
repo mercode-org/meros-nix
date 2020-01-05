@@ -4,6 +4,10 @@ with lib;
 with (import ./util.nix lib);
 
 makeDefault {
+  boot.plymouth = {
+    enable = true;
+  };
+
   services.xserver = {
     enable = true;
 
