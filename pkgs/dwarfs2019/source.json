@@ -1,7 +1,7 @@
 {
   "url": "https://github.com/mercode-org/dwarfs2019",
-  "rev": "59ac4a13972712b8404217183b684c47683d2338",
-  "date": "2019-12-24T18:55:33+03:00",
-  "sha256": "14lw69hjxp7ldbqzjni2sj4bj1687bi4m6gccdvr06sqc0bp1nd4",
+  "rev": "bef42cc6f939b21e0e5643e3a99ec4130afe7ae2",
+  "date": "2020-01-05T17:42:34+01:00",
+  "sha256": "12xkvi9pq0q0alnss779mmn95l5q8svds275waymwrj69nd3nsy4",
   "fetchSubmodules": false
 }

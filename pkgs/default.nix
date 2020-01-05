@@ -18,6 +18,9 @@ in
   distrocards = pkgs.callPackage ./distrocards {
     inherit mkNode;
   };
+  dwarfs2019 = pkgs.callPackage ./dwarfs2019 {
+    inherit mkNode;
+  };
   mercode-bazik = pkgs.callPackage ./mercode-bazik { };
   mercode-jbrawn = pkgs.callPackage ./mercode-jbrawn { };
   meros-backgrounds = pkgs.callPackage ./mer-os-backgrounds { };
