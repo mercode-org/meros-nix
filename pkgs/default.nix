@@ -7,19 +7,23 @@ let
   };
   mkNode = import "${nixNodePackage}/nix/default.nix" pkgs;
 
+  makeIcon = pkgs.callPackage ./make-icon { };
+
 in
 {
+  inherit makeIcon;
+
   merculator = pkgs.callPackage ./merculator {
-    inherit mkNode;
+    inherit mkNode makeIcon;
   };
   meros-welcome = pkgs.callPackage ./meros-welcome-legacy {
-    inherit mkNode;
+    inherit mkNode makeIcon;
   };
   distrocards = pkgs.callPackage ./distrocards {
-    inherit mkNode;
+    inherit mkNode makeIcon;
   };
   dwarfs2019 = pkgs.callPackage ./dwarfs2019 {
-    inherit mkNode;
+    inherit mkNode makeIcon;
   };
   mercode-bazik = pkgs.callPackage ./mercode-bazik { };
   mercode-jbrawn = pkgs.callPackage ./mercode-jbrawn { };

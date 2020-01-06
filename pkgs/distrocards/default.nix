@@ -5,6 +5,7 @@
 , makeWrapper
 , electron_6
 , makeDesktopItem
+, makeIcon
 }:
 
 with (builtins);
@@ -24,6 +25,7 @@ mkNode { root = src; nodejs = nodejs-12_x; } rec {
 
   nativeBuildInputs = [
     makeWrapper
+    makeIcon
   ];
 
   desktopItem = makeDesktopItem {
@@ -41,7 +43,7 @@ mkNode { root = src; nodejs = nodejs-12_x; } rec {
     makeWrapper '${electron_6}/bin/electron' "$out/bin/${name}" \
       --add-flags "$out"
 
-    install -D assets/icon.png $out/share/icons/hicolor/520x520/apps/distrocards.png
+    makeIcon assets/icon.png distrocards
     install -D "${desktopItem}/share/applications/${name}.desktop" "$out/share/applications/${name}.desktop"
 
     runHook postInstall
