@@ -3,7 +3,7 @@
 }:
 
 stdenv.mkDerivation rec {
-  pname = "papirus-mer-icon-theme";
+  pname = "meros-skel";
   version = "0.0.1";
 
   src = ./skel;
