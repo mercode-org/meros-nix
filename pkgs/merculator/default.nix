@@ -5,6 +5,7 @@
 , makeWrapper
 , electron_5
 , makeDesktopItem
+, makeIcon
 }:
 
 with (builtins);
@@ -24,6 +25,7 @@ mkNode { root = src; nodejs = nodejs-12_x; } rec {
 
   nativeBuildInputs = [
     makeWrapper
+    makeIcon
   ];
 
   desktopItem = makeDesktopItem {
@@ -40,9 +42,8 @@ mkNode { root = src; nodejs = nodejs-12_x; } rec {
     makeWrapper '${electron_5}/bin/electron' "$out/bin/${name}" \
       --add-flags "$out"
 
-    install -D icon.png $out/share/icons/hicolor/520x520/apps/merculator.png
-    mkdir -p "$out/share/applications"
-    ln -s "${desktopItem}/share/applications" "$out/share/applications"
+    makeIcon icon.png merculator
+    install -D "${desktopItem}/share/applications/${name}.desktop" "$out/share/applications/${name}.desktop"
   '';
 
   meta = with stdenv.lib; {

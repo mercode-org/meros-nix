@@ -6,6 +6,7 @@
 , electron_6
 , makeDesktopItem
 , bash
+, makeIcon
 }:
 
 with (builtins);
@@ -25,6 +26,7 @@ mkNode { root = src; nodejs = nodejs-12_x; production = false; } rec {
 
   nativeBuildInputs = [
     makeWrapper
+    makeIcon
   ];
 
   desktopItem = makeDesktopItem {
@@ -48,8 +50,8 @@ mkNode { root = src; nodejs = nodejs-12_x; production = false; } rec {
     makeWrapper '${electron_6}/bin/electron' "$out/bin/${name}" \
       --add-flags "$out/app.js"
 
-    install -D icon.png $out/share/icons/hicolor/520x520/apps/dwarfs2019.png
-    # ln -s "${desktopItem}/share/applications" "$out/share/applications"
+    makeIcon icon.png dwarfs2019
+    install -D "${desktopItem}/share/applications/${name}.desktop" "$out/share/applications/${name}.desktop"
 
     runHook postInstall
   '';
