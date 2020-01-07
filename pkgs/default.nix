@@ -14,9 +14,9 @@ in
 {
   inherit makeIcon;
 
-  /* merculator = pkgs.callPackage ./merculator {
+  merculator = pkgs.callPackage ./merculator {
     inherit mkNode makeIcon;
-  }; */
+  };
   meros-welcome = pkgs.callPackage ./meros-welcome-legacy {
     inherit mkNode makeIcon;
   };
