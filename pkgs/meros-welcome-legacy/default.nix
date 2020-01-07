@@ -38,12 +38,28 @@ mkNode { root = src; nodejs = nodejs-12_x; } rec {
     categories = "Administration;";
   };
 
+  desktopItemAutostart = makeDesktopItem {
+    name = name;
+    exec = "${name} --at-login";
+    icon = name;
+    desktopName = "MerOS Welcome";
+    genericName = "Welcome";
+    comment = meta.description;
+    categories = "Administration;";
+    extraEntries = ''
+      NoDisplay=true
+      AutostartCondition=unless-exists meros-welcome-hide
+      StartupNotify=true
+    '';
+  };
+
   installPhase = ''
     makeWrapper '${electron_5}/bin/electron' "$out/bin/${name}" \
       --add-flags "$out"
 
-    # makeIcon icon.png meros-welcome-legacy
+    makeIcon assets/icon.png meros-welcome-legacy
     install -D "${desktopItem}/share/applications/${name}.desktop" "$out/share/applications/${name}.desktop"
+    install -D "${desktopItemAutostart}/share/applications/${name}.desktop" "$out/etc/xdg/autostart/meros-welcome-at-login.desktop"
   '';
 
   meta = with stdenv.lib; {
