@@ -5,7 +5,7 @@ with lib;
 
 {
   imports = [
-    <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-base.nix>
+    "${import ../lib/nixpkgs.nix}/nixos/modules/installer/cd-dvd/installation-cd-base.nix"
     ./installer.nix
     ./base.nix
   ];
