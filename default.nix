@@ -1,5 +1,6 @@
 let
-  load = configuration: (import <nixpkgs/nixos> {
+  nixpkgs = import ./lib/nixpkgs.nix;
+  load = configuration: (import "${nixpkgs}/nixos" {
     inherit configuration;
   });
   base = import ./config/bases;

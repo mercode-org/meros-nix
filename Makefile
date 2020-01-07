@@ -9,3 +9,8 @@ start-vm:
 .PHONY: start-iso
 start-iso: build-iso
 	qemu-system-x86_64 -cdrom result/iso/* -m 2048 -enable-kvm -cpu max -smp 5
+
+.PHONY: update
+update:
+	bash update.sh
+	make -C pkgs update

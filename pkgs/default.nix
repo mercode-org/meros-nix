@@ -1,5 +1,6 @@
 let
-  pkgs = import <nixpkgs> { };
+  nixpkgs = import ../lib/nixpkgs.nix;
+  pkgs = import "${nixpkgs}" { };
 
   nixNodePackage = builtins.fetchGit {
     url = "https://github.com/mkg20001/nix-node-package";
@@ -13,9 +14,9 @@ in
 {
   inherit makeIcon;
 
-  merculator = pkgs.callPackage ./merculator {
+  /* merculator = pkgs.callPackage ./merculator {
     inherit mkNode makeIcon;
-  };
+  }; */
   meros-welcome = pkgs.callPackage ./meros-welcome-legacy {
     inherit mkNode makeIcon;
   };
