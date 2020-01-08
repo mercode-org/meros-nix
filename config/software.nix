@@ -16,7 +16,7 @@ with lib;
     wget
 
     # apps
-    # nemo (needs finishe cinnamon port by @mkg20001)
+    cinnamon.nemo # needs to be ported upstream @mkg20001
     libreoffice # freeoffice
     flameshot
     atom
