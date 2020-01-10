@@ -8,6 +8,14 @@ let
   };
   mkNode = import "${nixNodePackage}/nix/default.nix" pkgs;
 
+  qSrcData = builtins.fromJSON (builtins.readFile ./nixiquity/source.json);
+  qSrc = pkgs.fetchFromGitHub {
+    repo = "nixiquity";
+    owner = "mercode-org";
+    rev = qSrcData.rev;
+    sha256 = qSrcData.sha256;
+  };
+
   makeIcon = pkgs.callPackage ./make-icon { };
 
 in
@@ -31,4 +39,4 @@ in
   meros-backgrounds = pkgs.callPackage ./mer-os-backgrounds { };
   meros-skel = pkgs.callPackage ./meros-skel { };
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme { };
-}
+} // (import "${qSrc}/nix/pkgs.nix" pkgs)

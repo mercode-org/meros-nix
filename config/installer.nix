@@ -35,6 +35,7 @@ with lib;
 
   environment.systemPackages = with pkgs; [
     gparted
+    nixiquity
   ];
 
   system.activationScripts.installerDesktop = let
