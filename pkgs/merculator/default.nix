@@ -3,7 +3,7 @@
 , mkNode
 , nodejs-12_x
 , makeWrapper
-, electron_5
+, electron_6
 , makeDesktopItem
 , makeIcon
 }:
@@ -39,7 +39,7 @@ mkNode { root = src; nodejs = nodejs-12_x; } rec {
   };
 
   installPhase = ''
-    makeWrapper '${electron_5}/bin/electron' "$out/bin/${name}" \
+    makeWrapper '${electron_6}/bin/electron' "$out/bin/${name}" \
       --add-flags "$out"
 
     makeIcon icon.png merculator
@@ -51,7 +51,7 @@ mkNode { root = src; nodejs = nodejs-12_x; } rec {
     homepage = https://github.com/mercode-org/merculator;
     license = licenses.gpl3;
     maintainers = with maintainers; [ mkg20001 ];
-    inherit (electron_5.meta) platforms;
+    inherit (electron_6.meta) platforms;
   };
 }
 
@@ -98,7 +98,7 @@ in mkYarnPackage rec {
     ln -s "${desktopItem}/share/applications" "$out/share/applications"
 
     # executable wrapper
-    makeWrapper '${electron_5}/bin/electron' "$out/bin/${executableName}" \
+    makeWrapper '${electron_6}/bin/electron' "$out/bin/${executableName}" \
       --add-flags "$out/share/riot/electron"
   '';
 
@@ -131,7 +131,7 @@ in mkYarnPackage rec {
     homepage = https://about.riot.im/;
     license = licenses.asl20;
     maintainers = with maintainers; [ pacien worldofpeace ];
-    inherit (electron_5.meta) platforms;
+    inherit (electron_6.meta) platforms;
   };
 }
 */
