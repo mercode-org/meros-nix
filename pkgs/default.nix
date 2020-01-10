@@ -40,5 +40,5 @@ in
   meros-skel = pkgs.callPackage ./meros-skel { };
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme { };
 
-  nixiquity = (import "${qSrc}/nix/pkgs.nix" pkgs).nixiquity;
+  nixiquity = import "${qSrc}/nix/pkgs.nix" pkgs;
 }
