@@ -39,6 +39,4 @@ in
   meros-backgrounds = pkgs.callPackage ./mer-os-backgrounds { };
   meros-skel = pkgs.callPackage ./meros-skel { };
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme { };
-
-  nixiquity = import "${qSrc}/nix/pkgs.nix" pkgs;
-}
+} // (import "${qSrc}/nix/pkgs.nix" pkgs)
