@@ -1,7 +1,7 @@
 {
   "url": "https://github.com/mercode-org/merculator",
-  "rev": "89c09c1850e2be8db827d64bcb63539beabe4eff",
-  "date": "2020-01-10T20:19:47+03:00",
-  "sha256": "1858gqyxprpv312dmxxif240p71x3a2jxj6hpijzpdsvaskv5hdk",
+  "rev": "800c2492d9867c231b4b3ffde11c04340f141a03",
+  "date": "2020-01-12T02:05:27+03:00",
+  "sha256": "0b7zikqhm9qah436zhn0qdqsyyb2higw0jfn1pfkghsgkz624lmf",
   "fetchSubmodules": false
 }

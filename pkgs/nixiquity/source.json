@@ -1,7 +1,7 @@
 {
   "url": "https://github.com/mercode-org/nixiquity",
-  "rev": "3684d679f5e3748fe9d3ec124792645c54beb81a",
-  "date": "2020-01-10T17:03:57+01:00",
-  "sha256": "1pfafmscpcnjhaaz17qk1lvw5zgvyrq9rvnc3nzfhv12gk9miqdd",
+  "rev": "420774e65cbf2ef333ec12364d4628ced838ec44",
+  "date": "2020-01-11T18:31:04+01:00",
+  "sha256": "0yzv05clr96j5ldcci86shn1cz2zp045jx4c78pn97cf4fjrlx44",
   "fetchSubmodules": false
 }
