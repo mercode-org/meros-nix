@@ -30,6 +30,7 @@ with lib;
     meros-skel
     mercode-bazik
     mercode-jbrawn
+    meros-tune
     papirus-mer
 
     # system
