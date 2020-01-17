@@ -1,7 +1,7 @@
 {
   "url": "https://github.com/mercode-org/meros-linux-tune",
-  "rev": "1a177693af0913eed1bc4bd577e54df9e6de6f3a",
-  "date": "2020-01-12T11:08:11+03:00",
-  "sha256": "1jwd0jjawzx9s8n8d51wfsprgllffijxrih2gz94c6y23kqycg3h",
+  "rev": "0dd238b3067e632785ab8697126534beb05fa3c4",
+  "date": "2020-01-15T00:35:56+03:00",
+  "sha256": "0l5mg9zva475crl6jgvg1ysh0vkwvmwnnnarv7n3ii06ngdmzwxq",
   "fetchSubmodules": false
 }
