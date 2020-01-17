@@ -1,6 +1,6 @@
 let
   nixpkgs = import ../lib/nixpkgs.nix;
-  pkgs = import "${nixpkgs}" { };
+  pkgs = import "${nixpkgs}" {};
 
   nixNodePackage = builtins.fetchGit {
     url = "https://github.com/mkg20001/nix-node-package";
@@ -17,7 +17,7 @@ let
   };
   installerPkgs = import "${installerSrc}/nix/pkgs.nix" pkgs;
 
-  makeIcon = pkgs.callPackage ./make-icon { };
+  makeIcon = pkgs.callPackage ./make-icon {};
 
 in
 {
@@ -35,12 +35,12 @@ in
   dwarfs2019 = pkgs.callPackage ./dwarfs2019 {
     inherit mkNode makeIcon;
   };
-  mercode-bazik = pkgs.callPackage ./mercode-bazik { };
-  mercode-jbrawn = pkgs.callPackage ./mercode-jbrawn { };
-  meros-backgrounds = pkgs.callPackage ./mer-os-backgrounds { };
-  meros-tune = pkgs.callPackage ./meros-linux-tune { };
-  meros-skel = pkgs.callPackage ./meros-skel { };
-  papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme { };
+  mercode-bazik = pkgs.callPackage ./mercode-bazik {};
+  mercode-jbrawn = pkgs.callPackage ./mercode-jbrawn {};
+  meros-backgrounds = pkgs.callPackage ./mer-os-backgrounds {};
+  meros-tune = pkgs.callPackage ./meros-linux-tune {};
+  meros-skel = pkgs.callPackage ./meros-skel {};
+  papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme {};
 
   gnome3 = pkgs.gnome3 // { inherit (installerPkgs) gtk3; };
 } // installerPkgs

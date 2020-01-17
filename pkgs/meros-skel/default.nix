@@ -1,5 +1,5 @@
-{ fetchFromGitHub,
-  stdenv
+{ fetchFromGitHub
+, stdenv
 }:
 
 stdenv.mkDerivation rec {

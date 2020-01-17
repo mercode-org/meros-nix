@@ -37,7 +37,7 @@ mkNode { root = src; nodejs = nodejs-12_x; } rec {
     categories = "Games;";
   };
 
-   installPhase = ''
+  installPhase = ''
     runHook preInstall
 
     makeWrapper '${electron_6}/bin/electron' "$out/bin/${name}" \
