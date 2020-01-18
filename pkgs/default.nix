@@ -4,7 +4,7 @@ let
 
   nixNodePackage = builtins.fetchGit {
     url = "https://github.com/mkg20001/nix-node-package";
-    rev = "7035ea3b00e58f469193151c3fc7cae7ef7a1661";
+    rev = "2b7a5d1dff02ca7f95e651c60476f17c720a3e72";
   };
   mkNode = import "${nixNodePackage}/nix/default.nix" pkgs;
 
