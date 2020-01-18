@@ -34,6 +34,6 @@ with lib;
     papirus-mer
 
     # system
-    # meros-welcome
+    meros-welcome
   ];
 }

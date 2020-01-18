@@ -27,8 +27,8 @@ with lib;
     qpaeq # https://github.com/NixOS/nixpkgs/pull/76321
 
     # mer-apps
-    # merculator
-    # distrocards
+    merculator
+    distrocards
 
     # utils
     htop
