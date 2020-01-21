@@ -45,5 +45,7 @@ in
   meros-skel = pkgs.callPackage ./meros-skel {};
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme {};
 
-  gnome3 = pkgs.gnome3 // { inherit (installerPkgs) gtk3; };
-} // installerPkgs
+  nixiquity = installerPkgs.nixiquity;
+
+  # gnome3 = pkgs.gnome3 // { inherit (installerPkgs) gtk3; };
+} # // installerPkgs
