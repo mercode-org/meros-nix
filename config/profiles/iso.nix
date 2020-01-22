@@ -16,7 +16,7 @@ with lib;
       pname = "stub-systems";
       version = "0.0.1";
 
-      src = ./empty.tar.gz;
+      src = ./../empty.tar.gz;
 
       installPhase = ''
         mkdir -p "$out/stub"
