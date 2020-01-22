@@ -33,12 +33,19 @@ rec {
   mate = osConfig "mate";
   cinnamon = osConfig "cinnamon";
 
-  isoAll = _nixpkgs.symlinkJoin {
-    name = "meros-iso";
-    paths = [
-      cinnamon.iso
-      mate.iso
-      xfce.iso
-    ];
+  isoAll = _nixpkgs.stdenv.mkDerivation {
+    pname = "meros-iso";
+
+    src = ./config/empty.tar.gz;
+
+    installPhase = ''
+      mkdir $out
+      ln -sv ${cinnamon.iso} $out/cinnamon
+      ln -sv ${cinnamon.iso}/iso/* $out/cinnamon.iso
+      ln -sv ${mate.iso} $out/mate
+      ln -sv ${mate.iso}/iso/* $out/mate.iso
+      ln -sv ${xfce.iso} $out/xfce
+      ln -sv ${xfce.iso}/iso/* $out/xfce.iso
+    '';
   };
 }
