@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 with lib;
-with (import ./util.nix lib);
+# with (import ./util.nix lib);
 
-makeDefault {
+{
   boot.plymouth = {
     enable = true;
   };
@@ -12,10 +12,6 @@ makeDefault {
     enable = true;
 
     displayManager.lightdm = {
-      enable = true;
-    };
-
-    desktopManager.xfce = {
       enable = true;
     };
   };

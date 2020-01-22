@@ -15,9 +15,6 @@ with lib;
     curl
     wget
 
-    #plugins
-    xfce4-14.xfce4-whiskermenu-plugin
-
     # apps
     cinnamon.nemo # needs to be ported upstream @mkg20001
     libreoffice # freeoffice

@@ -3,7 +3,9 @@
 with lib;
 
 {
-  imports = [];
+  imports = [
+    ./../.
+  ];
 
   # Whitelist wheel users to do anything
   # This is useful for things like pkexec

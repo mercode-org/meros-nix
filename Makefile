@@ -2,9 +2,17 @@
 build-iso:
 	nix-build -j auto -v -A iso
 
-.PHONY: start-vm
-start-vm:
-	nix -j auto run -f default.nix vm -c run-nixos-vm
+.PHONY: start-vm-mate
+start-vm-mate:
+	nix -j auto run -f default.nix mate.vm -c run-nixos-vm
+
+.PHONY: start-vm-xfce
+start-vm-xfce:
+	nix -j auto run -f default.nix xfce.vm -c run-nixos-vm
+
+.PHONY: start-vm-cinnamon
+start-vm-cinnamon:
+	nix -j auto run -f default.nix cinnamon.vm -c run-nixos-vm
 
 .PHONY: start-iso
 start-iso: build-iso

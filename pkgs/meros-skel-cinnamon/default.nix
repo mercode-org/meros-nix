@@ -3,7 +3,7 @@
 }:
 
 stdenv.mkDerivation rec {
-  pname = "meros-skel";
+  pname = "meros-skel-cinnamon";
   version = "0.0.1";
 
   src = ./skel;

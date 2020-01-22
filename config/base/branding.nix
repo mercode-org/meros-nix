@@ -27,7 +27,6 @@ with lib;
   environment.systemPackages = with pkgs; [
     # design
     meros-backgrounds
-    meros-skel
     mercode-bazik
     mercode-jbrawn
     meros-tune

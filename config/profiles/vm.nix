@@ -4,7 +4,7 @@ with lib;
 
 {
   imports = [
-    ./base.nix
+    ./../.
   ];
 
   users.users.meros = {
@@ -13,7 +13,7 @@ with lib;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     password = "";
     # needs to be ported upstream and be a global option @mkg20001
-    initialHomeContents = pkgs.meros-skel;
+    initialHomeContents = pkgs.meros-skel-xfce;
   };
 
   users.users.root.password = "";

@@ -42,7 +42,7 @@ in
   mercode-jbrawn = pkgs.callPackage ./mercode-jbrawn {};
   meros-backgrounds = pkgs.callPackage ./mer-os-backgrounds {};
   meros-tune = pkgs.callPackage ./meros-linux-tune {};
-  meros-skel = pkgs.callPackage ./meros-skel {};
+  meros-skel-xfce = pkgs.callPackage ./meros-skel-xfce {};
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme {};
 
   nixiquity = installerPkgs.nixiquity;
