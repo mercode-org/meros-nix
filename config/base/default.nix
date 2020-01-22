@@ -16,5 +16,5 @@ with lib;
   ];
 
   # Disable this, because it breaks stuff
-  networking.wireless = lib.mkForce false;
+  networking.wireless.enable = lib.mkForce false;
 }
