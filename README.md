@@ -7,6 +7,8 @@ This config is mainly used by meros images and will later be provided to users a
 
 # Building the ISO / Running the VM
 
+Replace `DE` with either xfce, mate or cinnamon
+
 ## Install Nix on your running system
 
 ```
@@ -23,17 +25,17 @@ nix-channel --update
 ## Start a VM with qemu
 
 ```
-make start-vm
+make start-vm-DE
 ```
 
 ## Build the ISO
 
 ```
-make build-iso
+make build-iso-DE
 ```
 
 ### Start the ISO
 
 ```
-make start-iso
+make start-iso-DE
 ```
