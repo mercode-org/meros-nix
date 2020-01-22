@@ -34,7 +34,8 @@ rec {
   cinnamon = osConfig "cinnamon";
 
   isoAll = _nixpkgs.stdenv.mkDerivation {
-    pname = "meros-iso";
+    name = "meros-iso";
+    version = "0.0.0";
 
     src = ./config/empty.tar.gz;
 
