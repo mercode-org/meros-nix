@@ -22,17 +22,11 @@ with lib;
   '';
 
   services.xserver.displayManager = {
-    lightdm = {
-      enable = false;
-    };
+    /* lightdm = {
+      enable = lib.mkForce false;
+    }; */
 
-    sddm = {
-      enable = true;
-      autoLogin = {
-        enable = true;
-        user = "nixos";
-      };
-    };
+    # TODO: ubiquity DE/DM?
   };
 
   environment.systemPackages = with pkgs; [

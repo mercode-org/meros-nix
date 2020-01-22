@@ -1,5 +1,6 @@
 let
   nixpkgs = import ./lib/nixpkgs.nix;
+  _nixpkgs = import "${nixpkgs}" {};
   load = configuration: (import "${nixpkgs}/nixos" {
     inherit configuration;
   });
@@ -32,7 +33,7 @@ rec {
   mate = osConfig "mate";
   cinnamon = osConfig "cinnamon";
 
-  isoAll = lib.symlinkJoin {
+  isoAll = _nixpkgs.symlinkJoin {
     name = "meros-iso";
     paths = [
       cinnamon.iso

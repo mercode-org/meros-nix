@@ -14,4 +14,7 @@ with lib;
     # just adds packages
     ./software.nix
   ];
+
+  # Disable this, because it breaks stuff
+  networking.wireless = lib.mkForce false;
 }
