@@ -4,8 +4,9 @@ with lib;
 
 {
   imports = [
-    ./xfce
-    ./mate
     ./cinnamon
+    ./lxde
+    ./mate
+    ./xfce
   ];
 }

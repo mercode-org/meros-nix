@@ -3,7 +3,8 @@ let
 in
 {
   inherit (merOS) isoAll;
-  xfceVm = merOS.xfce.vm;
-  mateVm = merOS.mate.vm;
   cinnamonVm = merOS.cinnamon.vm;
+  lxdeVm = merOS.lxde.vm;
+  mateVm = merOS.mate.vm;
+  xfceVm = merOS.xfce.vm;
 } // merOS.pkgs

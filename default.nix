@@ -29,9 +29,10 @@ let
 in
 rec {
   pkgs = import ./pkgs;
-  xfce = osConfig "xfce";
-  mate = osConfig "mate";
   cinnamon = osConfig "cinnamon";
+  lxde = osConfig "lxde";
+  mate = osConfig "mate";
+  xfce = osConfig "xfce";
 
   isoAll = _nixpkgs.stdenv.mkDerivation {
     name = "meros-iso";
@@ -43,6 +44,8 @@ rec {
       mkdir $out
       ln -sv ${cinnamon.iso} $out/cinnamon
       ln -sv ${cinnamon.iso}/iso/* $out/cinnamon.iso
+      ln -sv ${lxde.iso} $out/lxde
+      ln -sv ${lxde.iso}/iso/* $out/lxde.iso
       ln -sv ${mate.iso} $out/mate
       ln -sv ${mate.iso}/iso/* $out/mate.iso
       ln -sv ${xfce.iso} $out/xfce
