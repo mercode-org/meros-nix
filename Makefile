@@ -14,6 +14,10 @@ start-vm-xfce:
 start-vm-cinnamon:
 	nix -j auto run -f default.nix cinnamon.vm -c run-nixos-vm
 
+.PHONY: start-vm-lxde
+start-vm-lxde:
+	nix -j auto run -f default.nix lxde.vm -c run-nixos-vm
+
 .PHONY: start-iso
 start-iso: build-iso
 	qemu-system-x86_64 -cdrom result/iso/* -m 2048 -enable-kvm -cpu max -smp 5
