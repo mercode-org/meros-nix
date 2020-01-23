@@ -22,6 +22,13 @@ nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 nix-channel --update
 ```
 
+## Enable the meros cache
+
+```
+nix-env -iA cachix -f https://cachix.org/api/v1/install
+cachix use meros
+```
+
 ## Start a VM with qemu
 
 ```
