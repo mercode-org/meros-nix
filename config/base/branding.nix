@@ -35,4 +35,8 @@ with lib;
     # system
     meros-welcome
   ];
+
+  environment.pathsToLink = [
+    "/share/wallpapers"
+  ];
 }
