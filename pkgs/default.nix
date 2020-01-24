@@ -40,8 +40,8 @@ in
   };
   mercode-bazik = pkgs.callPackage ./mercode-bazik {};
   mercode-jbrawn = pkgs.callPackage ./mercode-jbrawn {};
-  meros-backgrounds = pkgs.callPackage ./mer-os-backgrounds {};
-  meros-tune = pkgs.callPackage ./meros-linux-tune {};
+  mercode-artworks = pkgs.callPackage ./mercode-artworks {};
+  merost = pkgs.callPackage ./merost {};
   meros-skel-xfce = pkgs.callPackage ./meros-skel-xfce {};
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme {};
 

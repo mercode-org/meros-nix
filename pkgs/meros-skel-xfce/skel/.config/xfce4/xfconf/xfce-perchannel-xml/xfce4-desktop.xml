@@ -92,6 +92,28 @@
         <property name="last-image" type="empty"/>
         <property name="last-single-image" type="empty"/>
       </property>
+      <property name="monitorVirtual-1" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+        </property>
+        <property name="workspace1" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+        </property>
+        <property name="workspace2" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+        </property>
+        <property name="workspace3" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+        </property>
+      </property>
     </property>
   </property>
 </channel>

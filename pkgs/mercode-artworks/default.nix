@@ -8,7 +8,7 @@ let
   srcData = fromJSON (readFile ./source.json);
 in
 stdenv.mkDerivation rec {
-  pname = "mer-os-backgrounds";
+  pname = "mercode-artworks";
   version = "0.0.1";
 
   src = fetchFromGitHub {
