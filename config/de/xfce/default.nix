@@ -12,4 +12,8 @@ mkIf config.services.xserver.desktopManager.xfce.enable {
 
   # needs upstream port @mkg20001
   environment.skel = pkgs.meros-skel-xfce;
+
+  # set pam skel
+  security.pam.makeHomeDir.skelDirectory = pkgs.meros-skel;
+
 }

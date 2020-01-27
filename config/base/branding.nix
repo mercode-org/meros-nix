@@ -22,8 +22,6 @@ with lib;
     };
   };
 
-  # security.pam.makeHomeDir.skelDirectory = pkgs.meros-skel;
-
   environment.systemPackages = with pkgs; [
     # design
     mercode-artworks
