@@ -12,8 +12,6 @@ with lib;
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     password = "";
-    # needs to be ported upstream and be a global option @mkg20001
-    initialHomeContents = pkgs.meros-skel-xfce;
   };
 
   users.users.root.password = "";

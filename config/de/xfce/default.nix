@@ -9,4 +9,11 @@ mkIf config.services.xserver.desktopManager.xfce.enable {
     # plugins
     xfce4-14.xfce4-whiskermenu-plugin
   ];
+
+  # needs upstream port @mkg20001
+  environment.skel = pkgs.meros-skel-xfce;
+
+  # set pam skel
+  security.pam.makeHomeDir.skelDirectory = pkgs.meros-skel;
+
 }
