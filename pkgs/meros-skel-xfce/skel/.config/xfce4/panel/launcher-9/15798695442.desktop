@@ -11,4 +11,4 @@ X-XFCE-MimeType=x-scheme-handler/http;x-scheme-handler/https;
 X-AppStream-Ignore=True
 Name=Web Browser
 Comment=Browse the web
-X-XFCE-Source=file:///nix/store/qjjwnmn9aaffhylvpjf5cx51dpi48znd-exo-0.12.8/share/applications/exo-web-browser.desktop
+X-XFCE-Source=file:///run/current-system/sw/share/applications/exo-web-browser.desktop
