@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-  repos="mercode-jbrawn mercode-bazik mercode-artworks papirus-mer-icon-theme merculator meros-welcome-legacy distrocards dwarfs2019 nixiquity meros-linux-tune deezloader-remix"
+  repos="mercode-jbrawn mercode-bazik mercode-artworks papirus-mer-icon-theme merculator meros-welcome-legacy distrocards dwarfs2019 nixiquity merost deezloader-remix"
 else
   repos="$*"
 fi
