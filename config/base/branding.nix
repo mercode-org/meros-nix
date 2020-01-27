@@ -6,7 +6,7 @@ with lib;
   # NOTE: this file shouldn't enable anything, just set the branding attributes
 
   services.xserver.displayManager.lightdm = {
-    background = "${pkgs.meros-backgrounds}/share/wallpapers/meros-backgrounds/3.jpg";
+    background = "${pkgs.mercode-artworks}/share/wallpapers/meros-backgrounds/login-wallpaper.jpg";
     greeters.gtk = {
       iconTheme = {
         package = pkgs.papirus-mer;
@@ -26,10 +26,10 @@ with lib;
 
   environment.systemPackages = with pkgs; [
     # design
-    meros-backgrounds
+    mercode-artworks
     mercode-bazik
     mercode-jbrawn
-    meros-tune
+    merost
     papirus-mer
 
     # system
