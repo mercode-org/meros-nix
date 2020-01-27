@@ -8,7 +8,7 @@
         <property name="color1" type="empty"/>
         <property name="color2" type="empty"/>
         <property name="color-style" type="empty"/>
-        <property name="image-path" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+        <property name="image-path" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/desktop-wallpaper.jpg"/>
         <property name="image-show" type="empty"/>
         <property name="last-image" type="empty"/>
         <property name="last-single-image" type="empty"/>
@@ -27,7 +27,7 @@
             <value type="uint" value="65535"/>
           </property>
           <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/desktop-wallpaper.jpg"/>
         </property>
         <property name="workspace1" type="empty">
           <property name="color-style" type="int" value="1"/>
@@ -44,7 +44,7 @@
             <value type="uint" value="65535"/>
           </property>
           <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/desktop-wallpaper.jpg"/>
         </property>
         <property name="workspace2" type="empty">
           <property name="color-style" type="int" value="1"/>
@@ -61,7 +61,7 @@
             <value type="uint" value="65535"/>
           </property>
           <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/desktop-wallpaper.jpg"/>
         </property>
         <property name="workspace3" type="empty">
           <property name="color-style" type="int" value="1"/>
@@ -78,7 +78,7 @@
             <value type="uint" value="65535"/>
           </property>
           <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/desktop-wallpaper.jpg"/>
         </property>
         <property name="image-style" type="int" value="0"/>
       </property>
@@ -96,22 +96,22 @@
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="0"/>
           <property name="image-style" type="int" value="3"/>
-          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/desktop-wallpaper.jpg"/>
         </property>
         <property name="workspace1" type="empty">
           <property name="color-style" type="int" value="0"/>
           <property name="image-style" type="int" value="3"/>
-          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/desktop-wallpaper.jpg"/>
         </property>
         <property name="workspace2" type="empty">
           <property name="color-style" type="int" value="0"/>
           <property name="image-style" type="int" value="3"/>
-          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/desktop-wallpaper.jpg"/>
         </property>
         <property name="workspace3" type="empty">
           <property name="color-style" type="int" value="0"/>
           <property name="image-style" type="int" value="3"/>
-          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/4.jpg"/>
+          <property name="last-image" type="string" value="/run/current-system/sw/share/wallpapers/meros-backgrounds/desktop-wallpaper.jpg"/>
         </property>
       </property>
     </property>
