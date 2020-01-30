@@ -13,6 +13,9 @@ makeDefault {
   # Faster boot through entropy seeding
   services.haveged.enable = true;
 
+  # Trim the SSD once a week
+  services.fstrim.enable = true;
+
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
