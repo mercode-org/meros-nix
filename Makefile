@@ -1,28 +1,63 @@
-.PHONY: build-iso
-build-iso:
-	nix-build -j auto -v -A iso
 
-.PHONY: start-vm-mate
-start-vm-mate:
-	nix -j auto run -f default.nix mate.vm -c run-nixos-vm
-
-.PHONY: start-vm-xfce
-start-vm-xfce:
-	nix -j auto run -f default.nix xfce.vm -c run-nixos-vm
-
-.PHONY: start-vm-cinnamon
-start-vm-cinnamon:
-	nix -j auto run -f default.nix cinnamon.vm -c run-nixos-vm
-
-.PHONY: start-vm-lxde
-start-vm-lxde:
-	nix -j auto run -f default.nix lxde.vm -c run-nixos-vm
-
-.PHONY: start-iso
-start-iso: build-iso
-	qemu-system-x86_64 -cdrom result/iso/* -m 2048 -enable-kvm -cpu max -smp 5
-
-.PHONY: update
+.PHONY: update build-all-iso
 update:
 	bash update.sh
 	make -C pkgs update
+build-all-iso:
+	nix-build -A isoAll -j auto
+rebuild-makefile: Makefile.template
+	node ./lib/buildMakefile.js ./Makefile.template ./Makefile cinnamon lxde mate xfce
+install.img:
+	qemu-img create install.img 2G
+
+
+.PHONY: build-vm-cinnamon start-vm-cinnamon
+build-vm-cinnamon:
+	nix-build -A cinnamon.vm -j auto -Q
+start-vm-cinnamon: build-vm-cinnamon
+	nix -j auto run -f default.nix cinnamon.vm -c run-nixos-vm
+
+.PHONY: build-iso-cinnamon start-iso-cinnamon
+build-iso-cinnamon:
+	nix-build -A cinnamon.iso -j auto
+start-iso-cinnamon: build-iso-cinnamon install.img
+	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
+
+
+.PHONY: build-vm-lxde start-vm-lxde
+build-vm-lxde:
+	nix-build -A lxde.vm -j auto -Q
+start-vm-lxde: build-vm-lxde
+	nix -j auto run -f default.nix lxde.vm -c run-nixos-vm
+
+.PHONY: build-iso-lxde start-iso-lxde
+build-iso-lxde:
+	nix-build -A lxde.iso -j auto
+start-iso-lxde: build-iso-lxde install.img
+	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
+
+
+.PHONY: build-vm-mate start-vm-mate
+build-vm-mate:
+	nix-build -A mate.vm -j auto -Q
+start-vm-mate: build-vm-mate
+	nix -j auto run -f default.nix mate.vm -c run-nixos-vm
+
+.PHONY: build-iso-mate start-iso-mate
+build-iso-mate:
+	nix-build -A mate.iso -j auto
+start-iso-mate: build-iso-mate install.img
+	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
+
+
+.PHONY: build-vm-xfce start-vm-xfce
+build-vm-xfce:
+	nix-build -A xfce.vm -j auto -Q
+start-vm-xfce: build-vm-xfce
+	nix -j auto run -f default.nix xfce.vm -c run-nixos-vm
+
+.PHONY: build-iso-xfce start-iso-xfce
+build-iso-xfce:
+	nix-build -A xfce.iso -j auto
+start-iso-xfce: build-iso-xfce install.img
+	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
