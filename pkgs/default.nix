@@ -18,10 +18,11 @@ let
   installerPkgs = import "${installerSrc}/nix/pkgs.nix" pkgs;
 
   makeIcon = pkgs.callPackage ./make-icon {};
+  webkit2-launcher = pkgs.callPackage ./webkit2-launcher { };
 
 in
 {
-  inherit makeIcon;
+  inherit makeIcon webkit2-launcher;
 
   merculator = pkgs.callPackage ./merculator {
     inherit mkNode makeIcon;
