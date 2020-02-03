@@ -1,9 +1,13 @@
 { stdenv, fetchFromGitHub, inkscape, xcursorgen }:
 
+with (builtins);
+
+let
+  srcData = fromJSON (readFile ./source.json);
+in
 stdenv.mkDerivation rec {
-  version = "1.1";
-  package-name = "mer-cursor-theme";
-  name = "${package-name}-${version}";
+  version = "1.2";
+  pname = "mer-cursor";
 
   src = fetchFromGitHub {
     owner = "mercode-org";
@@ -15,13 +19,13 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ inkscape xcursorgen ];
 
   buildPhase = ''
-    patchShebangs .
+    patchShebangs ./build.sh
     HOME=$TMP ./build.sh
   '';
 
   installPhase = ''
-    install -dm 755 $out/share/icons
-    cp -dr --no-preserve='ownership' mer-cursor{,-Light} $out/share/icons/
+    mkdir -p $out/share/icons
+    cp -r theme/mer-cursor $out/share/icons/mer-cursor
   '';
 
   meta = with stdenv.lib; {
@@ -29,6 +33,5 @@ stdenv.mkDerivation rec {
     homepage = https://os.mercode.org/;
     license = licenses.gpl3;
     platforms = platforms.all;
-    maintainers = with maintainers; [ offline ];
   };
 }

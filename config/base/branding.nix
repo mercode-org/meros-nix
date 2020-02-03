@@ -28,6 +28,7 @@ with lib;
     mercode-bazik
     mercode-jbrawn
     merost
+    mer-cursor
     papirus-mer
 
     # system
