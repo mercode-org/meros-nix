@@ -14,6 +14,9 @@ with lib;
     git
     curl
     wget
+    vim
+    gcc
+    parted
 
     # apps
     cinnamon.nemo # needs to be ported upstream @mkg20001
