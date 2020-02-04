@@ -8,6 +8,7 @@ mkIf config.services.xserver.desktopManager.xfce.enable {
   environment.systemPackages = with pkgs; [
     # plugins
     xfce4-14.xfce4-whiskermenu-plugin
+    xfce4-14.xfce4-battery-plugin
   ];
 
   # needs upstream port @mkg20001
