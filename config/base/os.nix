@@ -11,6 +11,10 @@ with lib;
   services.xserver = {
     enable = true;
 
+    # touchpad
+    libinput.enable = true;
+
+    # you know, for login
     displayManager.lightdm = {
       enable = true;
     };
