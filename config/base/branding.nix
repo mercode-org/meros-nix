@@ -37,4 +37,12 @@ with lib;
   environment.pathsToLink = [
     "/share/wallpapers"
   ];
+
+  fonts.fonts = with pkgs; [
+    raleway
+    jetbrains-mono
+  ];
+
+  fonts.fontconfig.defaultFonts.monospace = [ "Jetbrains Mono Regular" ];
+  fonts.fontconfig.defaultFonts.sansSerif = [ "Raleway Medium" ];
 }
