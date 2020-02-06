@@ -34,6 +34,8 @@ with lib;
     nixiquity
   ];
 
+  meros.bundle-preload = true;
+
   system.activationScripts.installerDesktop = let
 
     # Comes from documentation.nix when xserver and nixos.enable are true.

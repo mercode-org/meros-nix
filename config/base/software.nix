@@ -14,10 +14,11 @@ with lib;
     git
     curl
     wget
+    gnome3.gnome-disk-utility
 
     # apps
     cinnamon.nemo
-    libreoffice # freeoffice
+    libreoffice
     flameshot
     atom
     wine
@@ -36,4 +37,7 @@ with lib;
     chromium
     firefox
   ];
+
+  meros.bundle.devTools.pkgs = with pkgs; [ gcc vim cmake gparted ];
+  meros.bundle.editingTools.pkgs = with pkgs; [ gimp inkscape krita openshot-qt ];
 }

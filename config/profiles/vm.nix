@@ -16,6 +16,8 @@ with lib;
 
   users.users.root.password = "";
 
+  meros.bundle-preload = true;
+
   services.mingetty.autologinUser = "root";
 
   services.openssh = {
