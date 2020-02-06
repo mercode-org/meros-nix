@@ -19,6 +19,7 @@ with lib;
     vim
     cmake
     gparted
+    ark
 
     # apps
     cinnamon.nemo
