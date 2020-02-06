@@ -14,19 +14,25 @@ with lib;
     git
     curl
     wget
-    vim
+    gnome3.gnome-disk-utility
     gcc
-    parted
+    vim
+    cmake
+    gparted
 
     # apps
     cinnamon.nemo
-    libreoffice # freeoffice
+    libreoffice 
     flameshot
     atom
     wine
     shotwell
     font-manager
     qpaeq
+    gimp
+    inkscape
+    krita
+    openshot-qt
 
     # mer-apps
     merculator
