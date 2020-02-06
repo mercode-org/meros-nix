@@ -15,24 +15,16 @@ with lib;
     curl
     wget
     gnome3.gnome-disk-utility
-    gcc
-    vim
-    cmake
-    gparted
 
     # apps
     cinnamon.nemo
-    libreoffice 
+    libreoffice
     flameshot
     atom
     wine
     shotwell
     font-manager
     qpaeq
-    gimp
-    inkscape
-    krita
-    openshot-qt
 
     # mer-apps
     merculator
@@ -45,4 +37,7 @@ with lib;
     chromium
     firefox
   ];
+
+  meros.bundle.devTools.pkgs = with pkgs; [ gcc vim cmake gparted ];
+  meros.bundle.editingTools.pkgs = with pkgs; [ gimp inkscape krita openshot-qt ];
 }

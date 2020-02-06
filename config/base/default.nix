@@ -4,6 +4,9 @@ with lib;
 
 {
   imports = [
+    # extra modules
+    ./_bundles.nix
+
     # these files set branding stuff and add branding packages, don't enable any flags
     ./branding.nix
 

@@ -14,6 +14,7 @@ with lib;
       };
 
       extraConfig = ''
+        cursor-theme=mer-cursor
         theme-name=mercode-jbrawn
         xft-antialias=true
         xft-hintstyle=hintfull
