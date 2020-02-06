@@ -16,6 +16,9 @@ makeDefault {
   # Trim the SSD once a week
   services.fstrim.enable = true;
 
+  # Power managment for laptops
+  services.tlp.enable = true;
+
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;

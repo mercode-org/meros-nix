@@ -19,15 +19,14 @@ with lib;
     parted
 
     # apps
-    cinnamon.nemo # needs to be ported upstream @mkg20001
+    cinnamon.nemo
     libreoffice # freeoffice
     flameshot
     atom
     wine
     shotwell
     font-manager
-    # needs to be ported upstream @mkg20001
-    qpaeq # https://github.com/NixOS/nixpkgs/pull/76321
+    qpaeq
 
     # mer-apps
     merculator
