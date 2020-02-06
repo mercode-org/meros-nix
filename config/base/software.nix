@@ -33,6 +33,8 @@ with lib;
     inkscape
     krita
     openshot-qt
+    gnome3.gnome-font-viewer
+    lumina.lumina-pdf
 
     # mer-apps
     merculator
