@@ -19,4 +19,15 @@ with lib;
       enable = true;
     };
   };
+
+  environment = {
+    links = {
+      bin.bash = "${pkgs.bash}/bin/bash";
+      usr.share = "/run/current-system/sw/share";
+    };
+
+    aliases = {
+      meros-upgrade = "sudo nixos-rebuild switch --upgrade";
+    };
+  };
 }
