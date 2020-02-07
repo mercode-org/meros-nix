@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 with lib;
-
+with (import ../../lib/cleansource.nix lib);
 {
   imports = [
     ./../.
@@ -37,7 +37,7 @@ with lib;
   meros.bundle-preload = true;
 
   channels.preload = {
-    meros = lib.cleanSource ../..;
+    meros = cleanSource ../..; # this uses merOS clean source
     nixos-hardware = ../../lib/nixos-hardware.nix;
   };
 

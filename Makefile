@@ -17,6 +17,13 @@ build-vm-cinnamon:
 start-vm-cinnamon: build-vm-cinnamon
 	nix -j auto run -f default.nix cinnamon.vm -c run-nixos-vm
 
+.PHONY: build-installer-vm-cinnamon start-installer-vm-cinnamon
+build-installer-vm-cinnamon:
+	nix-build -A cinnamon.installerVm -j auto -Q
+start-installer-vm-cinnamon: build-installer-vm-cinnamon install.img
+	nix -j auto run -f default.nix cinnamon.installerVm -c run-nixos-vm
+
+
 .PHONY: build-iso-cinnamon start-iso-cinnamon
 build-iso-cinnamon:
 	nix-build -A cinnamon.iso -j auto
@@ -29,6 +36,13 @@ build-vm-lxde:
 	nix-build -A lxde.vm -j auto -Q
 start-vm-lxde: build-vm-lxde
 	nix -j auto run -f default.nix lxde.vm -c run-nixos-vm
+
+.PHONY: build-installer-vm-lxde start-installer-vm-lxde
+build-installer-vm-lxde:
+	nix-build -A lxde.installerVm -j auto -Q
+start-installer-vm-lxde: build-installer-vm-lxde install.img
+	nix -j auto run -f default.nix lxde.installerVm -c run-nixos-vm
+
 
 .PHONY: build-iso-lxde start-iso-lxde
 build-iso-lxde:
@@ -43,6 +57,13 @@ build-vm-mate:
 start-vm-mate: build-vm-mate
 	nix -j auto run -f default.nix mate.vm -c run-nixos-vm
 
+.PHONY: build-installer-vm-mate start-installer-vm-mate
+build-installer-vm-mate:
+	nix-build -A mate.installerVm -j auto -Q
+start-installer-vm-mate: build-installer-vm-mate install.img
+	nix -j auto run -f default.nix mate.installerVm -c run-nixos-vm
+
+
 .PHONY: build-iso-mate start-iso-mate
 build-iso-mate:
 	nix-build -A mate.iso -j auto
@@ -55,6 +76,13 @@ build-vm-xfce:
 	nix-build -A xfce.vm -j auto -Q
 start-vm-xfce: build-vm-xfce
 	nix -j auto run -f default.nix xfce.vm -c run-nixos-vm
+
+.PHONY: build-installer-vm-xfce start-installer-vm-xfce
+build-installer-vm-xfce:
+	nix-build -A xfce.installerVm -j auto -Q
+start-installer-vm-xfce: build-installer-vm-xfce install.img
+	nix -j auto run -f default.nix xfce.installerVm -c run-nixos-vm
+
 
 .PHONY: build-iso-xfce start-iso-xfce
 build-iso-xfce:

@@ -24,6 +24,7 @@ let
     in
       {
         iso = (load (merge [ extraConf (import ./config/profiles/iso.nix bases) ])).config.system.build.isoImage;
+        installerVm = (load (merge [ extraConf ./config/profiles/installer-vm.nix ])).vm;
         vm = (load (merge [ extraConf ./config/profiles/vm.nix ])).vm;
       };
 in

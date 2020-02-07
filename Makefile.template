@@ -6,6 +6,13 @@ build-vm-&DE:
 start-vm-&DE: build-vm-&DE
 	nix -j auto run -f default.nix &DE.vm -c run-nixos-vm
 
+.PHONY: build-installer-vm-&DE start-installer-vm-&DE
+build-installer-vm-&DE:
+	nix-build -A &DE.installerVm -j auto -Q
+start-installer-vm-&DE: build-installer-vm-&DE install.img
+	nix -j auto run -f default.nix &DE.installerVm -c run-nixos-vm
+
+
 .PHONY: build-iso-&DE start-iso-&DE
 build-iso-&DE:
 	nix-build -A &DE.iso -j auto
