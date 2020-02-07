@@ -5,6 +5,10 @@ let
     inherit configuration;
   });
 
+  _channels = _nixpkgs.pkgs.callPackage ./lib/channels.nix {};
+  cleanSource = (import ./lib/cleansource.nix _nixpkgs.lib).cleanSource;
+  trim = builtins.replaceStrings [ "\n" ] [ "" ];
+
   # TODO: move to installer
 
   base = import ./config/profiles/installer/bases;
@@ -30,6 +34,7 @@ let
 in
 rec {
   pkgs = import ./pkgs;
+
   cinnamon = osConfig "cinnamon";
   lxde = osConfig "lxde";
   mate = osConfig "mate";
@@ -53,4 +58,49 @@ rec {
       ln -sv ${xfce.iso}/iso/* $out/xfce.iso
     '';
   };
+
+  channels = {
+    nixos =
+      let
+        ghSrc = builtins.fromJSON (builtins.readFile ./lib/nixpkgs.json);
+        src = "${import ./lib/nixpkgs.nix}/nixos";
+      in
+      _channels.createChannel {
+        channelName = "nixos";
+        binaryCache = "cache.nixos.org";
+        inherit ghSrc src;
+      };
+    nixos-hardware =
+      let
+        ghSrc = builtins.fromJSON (builtins.readFile ./lib/nixos-hardware.json);
+        src = import ./lib/nixos-hardware.nix;
+      in
+      _channels.createChannel {
+        channelName = "nixos-hardware";
+        binaryCache = "cache.nixos.org";
+        inherit ghSrc src;
+      };
+    nixpkgs =
+      let
+        ghSrc = builtins.fromJSON (builtins.readFile ./lib/nixpkgs.json);
+        src = import ./lib/nixpkgs.nix;
+      in
+      _channels.createChannel {
+        channelName = "nixpkgs";
+        binaryCache = "cache.nixos.org";
+        inherit ghSrc src;
+      };
+    meros =
+      let
+        gitRevision = trim (builtins.readFile ./.ref);
+        src = cleanSource ./.;
+      in
+      _channels.createChannel {
+        channelName = "meros";
+        binaryCache = "meros.cachix.org";
+        inherit gitRevision src;
+      };
+  };
+
+  allChannels = _channels.createMergedOutput (builtins.attrValues channels);
 }

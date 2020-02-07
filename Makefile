@@ -9,6 +9,9 @@ rebuild-makefile: Makefile.template
 	node ./lib/buildMakefile.js ./Makefile.template ./Makefile cinnamon lxde mate xfce
 install.img:
 	qemu-img create install.img 2G
+channels:
+	git rev-parse --verify HEAD > .ref
+	nix-build -A allChannels
 
 
 .PHONY: build-vm-cinnamon start-vm-cinnamon
