@@ -31,7 +31,7 @@ with lib;
 
   environment.systemPackages = with pkgs; [
     gparted
-    nixiquity
+    meros-installer
   ];
 
   meros.bundle-preload = true;
