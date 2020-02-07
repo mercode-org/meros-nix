@@ -15,6 +15,7 @@ in
       preload = mkOption {
         type = types.attrsOf types.path;
         description = "Channels to preload";
+        default = {};
       };
     };
   };

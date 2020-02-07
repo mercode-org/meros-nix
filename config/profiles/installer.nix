@@ -36,6 +36,11 @@ with lib;
 
   meros.bundle-preload = true;
 
+  channels.preload = {
+    meros = lib.cleanSource ../..;
+    nixos-hardware = ../../lib/nixos-hardware.nix;
+  };
+
   system.activationScripts.installerDesktop = let
 
     # Comes from documentation.nix when xserver and nixos.enable are true.
