@@ -10,6 +10,10 @@ makeDefault {
   # Firmware updates
   services.fwupd.enable = true;
 
+  # Flatpak
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;
+
   # Faster boot through entropy seeding
   services.haveged.enable = true;
 
