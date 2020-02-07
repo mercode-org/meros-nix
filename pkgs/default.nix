@@ -19,10 +19,11 @@ let
 
   makeIcon = pkgs.callPackage ./make-icon {};
   webkit2-launcher = pkgs.callPackage ./webkit2-launcher { };
+  meros-slideshow = pkgs.callPackage ./meros-slide { };
 
 in
 {
-  inherit makeIcon webkit2-launcher;
+  inherit makeIcon webkit2-launcher meros-slideshow;
 
   merculator = pkgs.callPackage ./merculator {
     inherit mkNode makeIcon;
@@ -48,6 +49,10 @@ in
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme {};
 
   nixiquity = installerPkgs.nixiquity;
+
+  meros-installer = installerPkgs.nixiquity.override {
+    slideshowPackage = meros-slideshow;
+  };
 
   # gnome3 = pkgs.gnome3 // { inherit (installerPkgs) gtk3; };
 } # // installerPkgs
