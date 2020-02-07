@@ -4,7 +4,7 @@ let
 
   nixNodePackage = builtins.fetchGit {
     url = "https://github.com/mkg20001/nix-node-package";
-    rev = "2b7a5d1dff02ca7f95e651c60476f17c720a3e72";
+    rev = "af2be4bb0042a4f6ed6af7d8822f47762be62b2b";
   };
   mkNode = import "${nixNodePackage}/nix/default.nix" pkgs;
 
@@ -24,6 +24,10 @@ let
 in
 {
   inherit makeIcon webkit2-launcher meros-slideshow;
+
+  conf-tool = pkgs.callPackage ./conf-tool {
+    inherit mkNode;
+  };
 
   merculator = pkgs.callPackage ./merculator {
     inherit mkNode makeIcon;
