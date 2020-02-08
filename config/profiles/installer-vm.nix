@@ -4,7 +4,7 @@ with lib;
 
 {
   imports = [
-    "${import ../../lib/nixpkgs.nix}/nixos/modules/profiles/installation-device.nix"
+    "${pkgs.path}/nixos/modules/profiles/installation-device.nix"
     ./installer.nix
     ./vm.nix
   ];
