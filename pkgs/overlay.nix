@@ -1,1 +1,1 @@
-self: super: (import ./. super)
+self: super: (import ./all-packages.nix super.pkgs)
