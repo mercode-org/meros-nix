@@ -1,1 +1,1 @@
-self: super: (import ./.)
+self: super: (import ./. super)
