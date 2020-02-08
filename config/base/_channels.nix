@@ -58,7 +58,7 @@ in
 
       # end
     in
-    mkAfter
+    mkOrder 1700 # after mkAfter :P
       ''
         if ! [ -e /var/lib/nixos/did-channel-init-2 ]; then
           echo "unpacking the NixOS/Nixpkgs sources (meros-preload stage)..."
