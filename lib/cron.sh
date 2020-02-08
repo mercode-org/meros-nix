@@ -41,7 +41,7 @@ do_cron() {
   pushd "$G"
   git -c advice.detachedHead=false checkout "$REV"
 
-  NIX_FILE="$G/default.nix"
+  NIX_FILE="$G/release.nix"
 
   log "Building isos..."
   do_build "$NIX_FILE" isoAll "$out_name-iso"
