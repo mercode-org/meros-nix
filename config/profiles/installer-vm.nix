@@ -4,7 +4,7 @@ with lib;
 
 {
   imports = [
-    "${pkgs.path}/nixos/modules/profiles/installation-device.nix"
+    "${import ../../lib/nixpkgs.nix}/nixos/modules/profiles/installation-device.nix"
     ./installer.nix
     ./vm.nix
   ];
@@ -14,4 +14,6 @@ with lib;
   virtualisation.qemu.networkingOptions = [
     "-hda $(readlink -f \${INSTALL_DISK_IMAGE:-$(dirname $NIX_DISK_IMAGE)/install.img})"
   ];
+
+
 }

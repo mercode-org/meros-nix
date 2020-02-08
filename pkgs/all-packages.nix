@@ -1,4 +1,4 @@
-pkgs:
+{ lib, pkgs, ... }:
 let
   nixNodePackage = builtins.fetchGit {
     url = "https://github.com/mkg20001/nix-node-package";
@@ -21,6 +21,10 @@ let
 
 in
 {
+  merosNixpkgs = import ../lib/nixpkgs.nix;
+  merosNixosHardware = import ../lib/nixos-hardware.nix;
+  meros = lib.cleanSource ../.;
+
   inherit makeIcon webkit2-launcher meros-slideshow;
 
   conf-tool = pkgs.callPackage ./conf-tool {

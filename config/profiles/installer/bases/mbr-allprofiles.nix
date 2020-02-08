@@ -4,8 +4,8 @@ with lib;
 
 {
   imports = [
-    "${pkgs.path}/nixos/modules/profiles/all-hardware.nix"
-    "${pkgs.path}/nixos/modules/installer/scan/not-detected.nix"
+    "${import ../../../../lib/nixpkgs.nix}/nixos/modules/profiles/all-hardware.nix"
+    "${import ../../../../lib/nixpkgs.nix}/nixos/modules/installer/scan/not-detected.nix"
   ];
 
   boot.loader.grub.enable = true;
