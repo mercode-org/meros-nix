@@ -8,6 +8,8 @@ with lib;
     enable = true;
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   services.xserver = {
     enable = true;
 
