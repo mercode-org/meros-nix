@@ -10,6 +10,9 @@ with lib;
     flatpak
     # snapd N/A yet
 
+    # sys apps
+    conf-tool
+
     # utilities
     git
     curl

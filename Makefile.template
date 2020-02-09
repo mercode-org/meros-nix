@@ -2,13 +2,20 @@
 
 .PHONY: build-vm-&DE start-vm-&DE
 build-vm-&DE:
-	nix-build -A &DE.vm -j auto -Q
+	nix-build release.nix -A &DE.vm -j auto -Q
 start-vm-&DE: build-vm-&DE
-	nix -j auto run -f default.nix &DE.vm -c run-nixos-vm
+	nix -j auto run -f release.nix &DE.vm -c run-nixos-vm
+
+.PHONY: build-installer-vm-&DE start-installer-vm-&DE
+build-installer-vm-&DE:
+	nix-build release.nix -A &DE.installerVm -j auto -Q
+start-installer-vm-&DE: build-installer-vm-&DE install.img
+	nix -j auto run -f release.nix &DE.installerVm -c run-nixos-vm
+
 
 .PHONY: build-iso-&DE start-iso-&DE
 build-iso-&DE:
-	nix-build -A &DE.iso -j auto
+	nix-build release.nix -A &DE.iso -j auto
 start-iso-&DE: build-iso-&DE install.img
 	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
 
@@ -19,8 +26,11 @@ update:
 	bash update.sh
 	make -C pkgs update
 build-all-iso:
-	nix-build -A isoAll -j auto
+	nix-build release.nix -A isoAll -j auto
 rebuild-makefile: Makefile.template
 	node ./lib/buildMakefile.js ./Makefile.template ./Makefile cinnamon lxde mate xfce
 install.img:
 	qemu-img create install.img 2G
+channels:
+	git rev-parse --verify HEAD > .ref
+	nix-build release.nix -A allChannels
