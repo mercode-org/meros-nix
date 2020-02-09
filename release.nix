@@ -17,11 +17,22 @@ let
     (load base.efi-allprofiles).system
   ];
 
-  osConfig = de:
+  osConfig = { de, useLibre ? false }:
     let
+      seedConf = {
+        softwareAllowUnfree = !useLibre;
+        keys = {
+          services.xserver.desktopManager.${de}.enable = true;
+          meros.libre = useLibre;
+        };
+      };
+
       extraConf = { ... }: {
         services.xserver.desktopManager.${de}.enable = true;
+        environment.etc."conf-tool-seed.json".text = builtins.toJSON seedConf;
+        meros.libre = useLibre;
       };
+
       merge = confs: { ... }: {
         imports = confs;
       };
@@ -35,10 +46,10 @@ in
 rec {
   pkgs = import ./pkgs;
 
-  cinnamon = osConfig "cinnamon";
-  lxde = osConfig "lxde";
-  mate = osConfig "mate";
-  xfce = osConfig "xfce";
+  cinnamon = osConfig { de = "cinnamon"; };
+  lxde = osConfig { de = "lxde"; };
+  mate = osConfig { de = "mate"; };
+  xfce = osConfig { de = "xfce"; };
 
   isoAll = _nixpkgs.stdenv.mkDerivation {
     name = "meros-iso";
