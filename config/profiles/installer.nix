@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 with lib;
-
+with (import ../../lib/cleansource.nix lib);
 {
   imports = [
     ./../.
@@ -31,10 +31,15 @@ with lib;
 
   environment.systemPackages = with pkgs; [
     gparted
-    nixiquity
+    meros-installer
   ];
 
   meros.bundle-preload = true;
+
+  channels.preload = {
+    meros = cleanSource ../..; # this uses merOS clean source
+    nixos-hardware = ../../lib/nixos-hardware.nix;
+  };
 
   system.activationScripts.installerDesktop = let
 

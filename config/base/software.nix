@@ -10,6 +10,9 @@ with lib;
     flatpak
     # snapd N/A yet
 
+    # sys apps
+    conf-tool
+
     # utilities
     git
     curl
@@ -39,5 +42,5 @@ with lib;
   ];
 
   meros.bundle.devTools.pkgs = with pkgs; [ gcc vim cmake gparted ];
-  meros.bundle.editingTools.pkgs = with pkgs; [ gimp inkscape krita openshot-qt ];
+  meros.bundle.editingTools.pkgs = with pkgs; [ gimp inkscape krita ]; # openshot-qt
 }

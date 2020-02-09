@@ -5,6 +5,7 @@ with lib;
 {
   imports = [
     # extra modules
+    ./_channels.nix
     ./_bundles.nix
 
     # these files set branding stuff and add branding packages, don't enable any flags

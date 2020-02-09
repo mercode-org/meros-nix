@@ -13,8 +13,8 @@ with lib;
     (import ../pkgs/overlay.nix)
   ];
 
-  # "why isn't this enabled by default?" - @yutyo
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree will be activated by installer
+  # we are NOT allowed to redistribute propriatery stuff in the ISO
 
   # add meros cache
   nix = {

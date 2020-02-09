@@ -1,5 +1,5 @@
 let
-  merOS = import ./.;
+  merOS = import ./release.nix;
 in
 {
   # inherit (merOS) isoAll; # temporarily disabled because of CI problems
