@@ -20,7 +20,7 @@ let
     sha256 = srcData.sha256;
   };
 in
-mkNode { root = src; nodejs = nodejs-12_x; } rec {
+mkNode { root = "${src}/app"; nodejs = nodejs-12_x; } rec {
   pname = name;
 
   nativeBuildInputs = [
@@ -43,7 +43,7 @@ mkNode { root = src; nodejs = nodejs-12_x; } rec {
     makeWrapper '${electron_6}/bin/electron' "$out/bin/${name}" \
       --add-flags "$out"
 
-    makeIcon app/icon.png deezloader-remix
+    makeIcon icon.png deezloader-remix
     install -D "${desktopItem}/share/applications/${name}.desktop" "$out/share/applications/${name}.desktop"
 
     runHook postInstall

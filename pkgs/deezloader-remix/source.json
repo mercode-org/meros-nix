@@ -1,7 +1,7 @@
 {
   "url": "https://github.com/mercode-org/deezloader-remix",
-  "rev": "dc51510cf7ee2ba758083a7b519cc1742063f966",
-  "date": "2020-01-19T15:13:50+03:00",
-  "sha256": "032z5cz343xd5l2bbs2apb51wr68z36hknc6dzx061v0wc83whc9",
+  "rev": "421b963a4abe57baaa5994819b3624d8cca98b71",
+  "date": "2020-02-10T21:33:02+01:00",
+  "sha256": "1ih38wcp09bgwamdvwf8sx9pkmg1b9q8skmnayaracf1qmckdr6p",
   "fetchSubmodules": false
 }
