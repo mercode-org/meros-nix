@@ -17,6 +17,8 @@ let
     (load base.efi-allprofiles).system
   ];
 
+  pkgs = import ./pkgs;
+
   osConfig = { de, useLibre ? false }:
     let
       seedConf = {
@@ -44,7 +46,7 @@ let
       };
 in
 rec {
-  pkgs = import ./pkgs;
+  inherit pkgs;
 
   cinnamon = osConfig { de = "cinnamon"; };
   lxde = osConfig { de = "lxde"; };

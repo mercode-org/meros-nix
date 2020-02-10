@@ -25,7 +25,9 @@ in
   merosNixosHardware = import ../lib/nixos-hardware.nix;
   meros = lib.cleanSource ../.;
 
-  inherit makeIcon webkit2-launcher meros-slideshow;
+  inherit makeIcon webkit2-launcher meros-slideshow nixNodePackage;
+
+  nixNodePackageStub = pkgs.runCommand "nix-node-package-stub" {} ''mkdir $out; ln -s ${nixNodePackage} $out/link'';
 
   conf-tool = pkgs.callPackage ./conf-tool {
     inherit mkNode;
