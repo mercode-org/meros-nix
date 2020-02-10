@@ -31,6 +31,7 @@ with (import ../../lib/cleansource.nix lib);
 
   environment.systemPackages = with pkgs; [
     gparted
+    parted
     meros-installer
   ];
 

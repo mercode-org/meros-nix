@@ -15,5 +15,7 @@ with lib;
     "-hda $(readlink -f \${INSTALL_DISK_IMAGE:-$(dirname $NIX_DISK_IMAGE)/install.img})"
   ];
 
-
+  environment.systemPackage = [
+    (pkgs.writeShellScriptBin "quick-install-vm" (builtins.readFile ./quick-install-vm.sh))
+  ];
 }
