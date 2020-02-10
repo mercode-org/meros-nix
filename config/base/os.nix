@@ -24,10 +24,16 @@ with lib;
     };
 
     channels = {
-      links = ''
+      /* links = ''
         https://github.com/mkg20001/nixpkgs/archive/mkg-patch-a.tar.gz nixos
         https://github.com/mercode-org/meros-nix/archive/master.tar.gz meros
         https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
+      ''; */
+
+      links = ''
+        https://nix.mercode.org/dev/nixos nixos
+        https://nix.mercode.org/dev/nixos-hardware nixos-hardware
+        https://nix.mercode.org/dev/meros meros
       '';
     };
   };
