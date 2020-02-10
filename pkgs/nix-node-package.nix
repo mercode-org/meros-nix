@@ -23,7 +23,9 @@ stdenv.mkDerivation rec {
   dontFixup = true;
 
   installPhase = ''
-    mkdir -p $out
+    mkdir -p $out/bin
     cp -rp $PWD/nix $out
+    # stubs being stubs...
+    ln -s $out/nix $out/bin/nix-node-package
   '';
 }

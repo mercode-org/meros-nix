@@ -2,6 +2,10 @@
 
 with lib;
 with (import ../../lib/cleansource.nix lib);
+
+let
+  bases = import ./bases (import ../../lib/nixpkgs.nix);
+in
 {
   imports = [
     ./../.
@@ -33,6 +37,21 @@ with (import ../../lib/cleansource.nix lib);
     gparted
     parted
     meros-installer
+
+    # we need this so the stub (that includes all the stuff that's on an installed system and not in the installer) gets included
+    (pkgs.stdenv.mkDerivation {
+      pname = "stub-systems";
+      version = "0.0.1";
+
+      src = ./../empty.tar.gz;
+
+      installPhase = ''
+        mkdir -p "$out/stub"
+        for base in ${escapeShellArgs bases}; do
+          ln -s "$base" "$out/stub/$(basename "$base")"
+        done
+      '';
+    })
   ];
 
   meros.bundle-preload = true;
@@ -56,6 +75,5 @@ with (import ../../lib/cleansource.nix lib);
 
     ln -sfT ${manualDesktopFile} ${desktopDir + "nixos-manual.desktop"}
     ln -sfT ${pkgs.gparted}/share/applications/gparted.desktop ${desktopDir + "gparted.desktop"}
-    ln -sfT ${pkgs.konsole}/share/applications/org.kde.konsole.desktop ${desktopDir + "org.kde.konsole.desktop"}
   '';
 }

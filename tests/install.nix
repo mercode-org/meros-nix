@@ -18,6 +18,6 @@ import "${import ../lib/nixpkgs.nix}/nixos/tests/make-test.nix" ({ pkgs, ...} : 
     $machine->start();
     $machine->waitForUnit("default.target");
 
-    $machine->succeed("quick-install-vm /dev/\$(lsblk -d -o name | grep 'sda' | tail -n 1)");
+    $machine->succeed("quick-install-vm /dev/\$(lsblk -d -o name | grep '^sd' | tail -n 1)");
   '';
 })
