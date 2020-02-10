@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 source apis.sh
 source cron-dev-config.sh
 
@@ -14,7 +16,7 @@ do_build() {
   mkdir -p "$RESULT_FOLDER"
   cd "$RESULT_FOLDER"
   RESULT="$RESULT_FOLDER/result"
-  nix-build "$1" -A "$2"
+  nix-build "$1" -A "$2" -j auto
 }
 
 do_cron() {
@@ -40,8 +42,10 @@ do_cron() {
   git clone --reference "$GIT_REF" https://github.com/mercode-org/meros-nix "$G"
   pushd "$G"
   git -c advice.detachedHead=false checkout "$REV"
+  git rev-parse --verify HEAD > .ref
 
   NIX_FILE="$G/release.nix"
+  mkdir -p "$out_folder"
 
   log "Building isos..."
   do_build "$NIX_FILE" isoAll "$out_name-iso"
@@ -50,6 +54,7 @@ do_cron() {
   log "Building channels..."
   do_build "$NIX_FILE" allChannels "$out_name-channels"
   ln -vsf "$RESULT"/* "$out_folder"
+  popd
 
   log "All done!"
 }
