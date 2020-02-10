@@ -7,4 +7,4 @@ in
   lxdeVm = merOS.lxde.vm;
   mateVm = merOS.mate.vm;
   xfceVm = merOS.xfce.vm;
-} // merOS.pkgs // merOS.tests
+} // merOS.pkgs // (merOS.tests {})

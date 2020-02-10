@@ -1,3 +1,8 @@
+params:
+
+let
+  load = file: (import file) params;
+in
 {
-  install = import ./install.nix;
+  install = load ./install.nix;
 }
