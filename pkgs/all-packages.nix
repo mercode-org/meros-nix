@@ -37,9 +37,9 @@ in
   distrocards = pkgs.callPackage ./distrocards {
     inherit mkNode makeIcon;
   };
-  /* deezloader-remix = pkgs.callPackage ./deezloader-remix {
+  deezloader-remix = pkgs.callPackage ./deezloader-remix {
     inherit mkNode makeIcon;
-  }; */
+  };
   dwarfs2019 = pkgs.callPackage ./dwarfs2019 {
     inherit mkNode makeIcon;
   };

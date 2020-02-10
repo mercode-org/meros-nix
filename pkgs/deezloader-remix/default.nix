@@ -3,7 +3,7 @@
 , mkNode
 , nodejs-12_x
 , makeWrapper
-, electron_6
+, electron_3
 , makeDesktopItem
 , makeIcon
 }:
@@ -40,7 +40,7 @@ mkNode { root = "${src}/app"; nodejs = nodejs-12_x; } rec {
   installPhase = ''
     runHook preInstall
 
-    makeWrapper '${electron_6}/bin/electron' "$out/bin/${name}" \
+    makeWrapper '${electron_3}/bin/electron' "$out/bin/${name}" \
       --add-flags "$out"
 
     makeIcon icon.png deezloader-remix
@@ -54,6 +54,6 @@ mkNode { root = "${src}/app"; nodejs = nodejs-12_x; } rec {
     homepage = https://notabug.org/RemixDevs/DeezloaderRemix;
     license = licenses.gpl3;
     maintainers = with maintainers; [ luc65r ];
-    inherit (electron_6.meta) platforms;
+    inherit (electron_3.meta) platforms;
   };
 }
