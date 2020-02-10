@@ -12,6 +12,8 @@ install.img:
 channels:
 	git rev-parse --verify HEAD > .ref
 	nix-build release.nix -A allChannels
+clean:
+	rm -f *.qcow2 *.img
 
 
 .PHONY: build-vm-cinnamon start-vm-cinnamon
