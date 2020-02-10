@@ -12,7 +12,7 @@ with lib;
 
     # sys apps
     conf-tool
-    nixNodePackageStub
+    nixNodePackage
 
     # utilities
     git

@@ -1,9 +1,6 @@
 { lib, pkgs, ... }:
 let
-  nixNodePackage = builtins.fetchGit {
-    url = "https://github.com/mkg20001/nix-node-package";
-    rev = "af2be4bb0042a4f6ed6af7d8822f47762be62b2b";
-  };
+  nixNodePackage = pkgs.callPackage ./nix-node-package.nix {};
   mkNode = import "${nixNodePackage}/nix/default.nix" pkgs;
 
   installerSrcData = builtins.fromJSON (builtins.readFile ./nixiquity/source.json);
@@ -26,8 +23,6 @@ in
   meros = lib.cleanSource ../.;
 
   inherit makeIcon webkit2-launcher meros-slideshow nixNodePackage;
-
-  nixNodePackageStub = pkgs.runCommand "nix-node-package-stub" {} ''mkdir $out; ln -s ${nixNodePackage} $out/link'';
 
   conf-tool = pkgs.callPackage ./conf-tool {
     inherit mkNode;
