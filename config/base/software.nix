@@ -2,6 +2,20 @@
 
 with lib;
 
+let
+  mkAutostart = list:
+    let
+      cmds = builtins.concatStringsSep "\n"
+        (forEach list (item: let
+          pkg = if builtins.isList item then elemAt 0 item else item;
+          name = if builtins.isList item then elemAt 1 item else item;
+          in
+            ''
+              install -D "${pkgs.${pkg}}/share/applications/${name}.desktop" "$out/etc/xdg/autostart/${name}.desktop"
+            ''));
+    in
+      pkgs.runCommand "autostart" {} cmds;
+in
 {
   imports = [];
 
@@ -40,6 +54,9 @@ with lib;
     # browsers
     chromium
     firefox
+
+    # autostart
+    (mkAutostart ["flameshot"])
   ];
 
   meros.bundle.devTools.pkgs = with pkgs; [ gcc vim cmake gparted ];
