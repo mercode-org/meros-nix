@@ -40,9 +40,6 @@ makeDefault {
   services.upower.enable = true;
   services.acpid.enable = true;
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   services.system-config-printer.enable = true;
   environment.systemPackages = with pkgs; [ system-config-printer ];
 
