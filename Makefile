@@ -8,10 +8,12 @@ build-all-iso:
 rebuild-makefile: Makefile.template
 	node ./lib/buildMakefile.js ./Makefile.template ./Makefile cinnamon lxde mate xfce
 install.img:
-	qemu-img create install.img 2G
+	qemu-img create install.img 6G
 channels:
 	git rev-parse --verify HEAD > .ref
 	nix-build release.nix -A allChannels
+clean:
+	rm -f *.qcow2 *.img
 
 
 .PHONY: build-vm-cinnamon start-vm-cinnamon

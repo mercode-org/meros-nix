@@ -2,6 +2,9 @@
 
 with lib;
 
+let
+  disk = "\${INSTALL_DISK_IMAGE:-$(dirname $NIX_DISK_IMAGE)/install.img}";
+in
 {
   imports = [
     "${import ../../lib/nixpkgs.nix}/nixos/modules/profiles/installation-device.nix"
@@ -12,8 +15,11 @@ with lib;
   services.mingetty.autologinUser = mkForce "meros";
 
   virtualisation.qemu.networkingOptions = [
-    "-hda $(readlink -f \${INSTALL_DISK_IMAGE:-$(dirname $NIX_DISK_IMAGE)/install.img})"
+    "-hdb $(readlink -f ${disk})"
+    "$((test -e ${disk} || qemu-img create ${disk} 6G) >/dev/null 2>/dev/null)"
   ];
 
-
+  environment.systemPackages = [
+    (pkgs.writeShellScriptBin "quick-install-vm" (builtins.readFile ./quick-install-vm.sh))
+  ];
 }

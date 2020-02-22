@@ -48,7 +48,9 @@ in
         if [ ! -e $out/nixos/nixpkgs ]; then
           ln -s . $out/nixos/nixpkgs
         fi
-        echo -n ${config.system.nixos.revision} > $out/nixos/.git-revision
+        ${optionalString (config.system.nixos.revision != null) ''
+          echo -n ${config.system.nixos.revision} > $out/nixos/.git-revision
+        ''}
         echo -n ${config.system.nixos.versionSuffix} > $out/nixos/.version-suffix
         echo ${config.system.nixos.versionSuffix} | sed -e s/pre// > $out/nixos/svn-revision
 

@@ -9,13 +9,7 @@ let
   cleanSource = (import ./lib/cleansource.nix _nixpkgs.lib).cleanSource;
   trim = builtins.replaceStrings [ "\n" ] [ "" ];
 
-  # TODO: move to installer
-
-  base = import ./config/profiles/installer/bases;
-  bases = [
-    (load base.mbr-allprofiles).system
-    (load base.efi-allprofiles).system
-  ];
+  pkgs = import ./pkgs;
 
   osConfig = { de, useLibre ? false }:
     let
@@ -38,13 +32,13 @@ let
       };
     in
       {
-        iso = (load (merge [ extraConf (import ./config/profiles/iso.nix bases) ])).config.system.build.isoImage;
+        iso = (load (merge [ extraConf ./config/profiles/iso.nix ])).config.system.build.isoImage;
         installerVm = (load (merge [ extraConf ./config/profiles/installer-vm.nix ])).vm;
         vm = (load (merge [ extraConf ./config/profiles/vm.nix ])).vm;
       };
 in
 rec {
-  pkgs = import ./pkgs;
+  inherit pkgs;
 
   cinnamon = osConfig { de = "cinnamon"; };
   lxde = osConfig { de = "lxde"; };
@@ -114,4 +108,6 @@ rec {
   };
 
   allChannels = _channels.createMergedOutput (builtins.attrValues channels);
+
+  tests = import ./tests/tests.nix;
 }

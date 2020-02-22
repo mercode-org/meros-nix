@@ -1,9 +1,6 @@
 { lib, pkgs, ... }:
 let
-  nixNodePackage = builtins.fetchGit {
-    url = "https://github.com/mkg20001/nix-node-package";
-    rev = "af2be4bb0042a4f6ed6af7d8822f47762be62b2b";
-  };
+  nixNodePackage = pkgs.callPackage ./nix-node-package.nix {};
   mkNode = import "${nixNodePackage}/nix/default.nix" pkgs;
 
   installerSrcData = builtins.fromJSON (builtins.readFile ./nixiquity/source.json);
@@ -25,7 +22,7 @@ in
   merosNixosHardware = import ../lib/nixos-hardware.nix;
   meros = lib.cleanSource ../.;
 
-  inherit makeIcon webkit2-launcher meros-slideshow;
+  inherit makeIcon webkit2-launcher meros-slideshow nixNodePackage;
 
   conf-tool = pkgs.callPackage ./conf-tool {
     inherit mkNode;
@@ -40,9 +37,9 @@ in
   distrocards = pkgs.callPackage ./distrocards {
     inherit mkNode makeIcon;
   };
-  /* deezloader-remix = pkgs.callPackage ./deezloader-remix {
+  deezloader-remix = pkgs.callPackage ./deezloader-remix {
     inherit mkNode makeIcon;
-  }; */
+  };
   dwarfs2019 = pkgs.callPackage ./dwarfs2019 {
     inherit mkNode makeIcon;
   };
