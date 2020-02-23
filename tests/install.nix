@@ -1,4 +1,4 @@
-import "${import ../lib/nixpkgs.nix}/nixos/tests/make-test.nix" ({ pkgs, ...} : {
+import "${import ../lib/nixpkgs.nix}/nixos/tests/make-test-python.nix" ({ pkgs, ...} : {
   name = "install";
   meta = with pkgs.stdenv.lib.maintainers; {
     maintainers = [ mkg20001 ];
@@ -15,9 +15,9 @@ import "${import ../lib/nixpkgs.nix}/nixos/tests/make-test.nix" ({ pkgs, ...} : 
   };
 
   testScript = {nodes, ...}: ''
-    $machine->start();
-    $machine->waitForUnit("default.target");
+    machine.start()
+    machine.wait_for_unit("default.target")
 
-    $machine->succeed("quick-install-vm /dev/\$(lsblk -d -o name | grep '^sd' | tail -n 1)");
+    machine.succeed("quick-install-vm /dev/$(lsblk -d -o name | grep '^sd' | tail -n 1)")
   '';
 })
