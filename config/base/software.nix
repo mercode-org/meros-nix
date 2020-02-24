@@ -57,6 +57,9 @@ in
 
     # autostart
     (mkAutostart ["flameshot"])
+
+    # ntfs ro fix
+    (hiPrio ntfs3g)
   ];
 
   meros.bundle.devTools.pkgs = with pkgs; [ gcc vim cmake gparted ];
