@@ -7,8 +7,6 @@ build-all-iso:
 	nix-build release.nix -A isoAll -j auto
 rebuild-makefile: Makefile.template
 	node ./lib/buildMakefile.js ./Makefile.template ./Makefile cinnamon lxde mate xfce
-install.img:
-	qemu-img create install.img 6G
 channels:
 	git rev-parse --verify HEAD > .ref
 	nix-build release.nix -A allChannels
@@ -32,7 +30,7 @@ start-installer-vm-cinnamon: build-installer-vm-cinnamon install.img
 .PHONY: build-iso-cinnamon start-iso-cinnamon
 build-iso-cinnamon:
 	nix-build release.nix -A cinnamon.iso -j auto
-start-iso-cinnamon: build-iso-cinnamon install.img
+start-iso-cinnamon: build-iso-cinnamon
 	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
 
 
@@ -52,7 +50,7 @@ start-installer-vm-lxde: build-installer-vm-lxde install.img
 .PHONY: build-iso-lxde start-iso-lxde
 build-iso-lxde:
 	nix-build release.nix -A lxde.iso -j auto
-start-iso-lxde: build-iso-lxde install.img
+start-iso-lxde: build-iso-lxde
 	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
 
 
@@ -72,7 +70,7 @@ start-installer-vm-mate: build-installer-vm-mate install.img
 .PHONY: build-iso-mate start-iso-mate
 build-iso-mate:
 	nix-build release.nix -A mate.iso -j auto
-start-iso-mate: build-iso-mate install.img
+start-iso-mate: build-iso-mate
 	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
 
 
@@ -92,5 +90,5 @@ start-installer-vm-xfce: build-installer-vm-xfce install.img
 .PHONY: build-iso-xfce start-iso-xfce
 build-iso-xfce:
 	nix-build release.nix -A xfce.iso -j auto
-start-iso-xfce: build-iso-xfce install.img
+start-iso-xfce: build-iso-xfce
 	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5

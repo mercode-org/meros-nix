@@ -16,7 +16,7 @@ start-installer-vm-&DE: build-installer-vm-&DE install.img
 .PHONY: build-iso-&DE start-iso-&DE
 build-iso-&DE:
 	nix-build release.nix -A &DE.iso -j auto
-start-iso-&DE: build-iso-&DE install.img
+start-iso-&DE: build-iso-&DE
 	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
 
 # enditerate
@@ -29,8 +29,6 @@ build-all-iso:
 	nix-build release.nix -A isoAll -j auto
 rebuild-makefile: Makefile.template
 	node ./lib/buildMakefile.js ./Makefile.template ./Makefile cinnamon lxde mate xfce
-install.img:
-	qemu-img create install.img 2G
 channels:
 	git rev-parse --verify HEAD > .ref
 	nix-build release.nix -A allChannels
