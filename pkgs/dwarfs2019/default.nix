@@ -21,7 +21,7 @@ let
     sha256 = srcData.sha256;
   };
 in
-mkNode { root = src; nodejs = nodejs-12_x; production = false; } rec {
+mkNode { root = src; packageLock = ./package-lock.json; nodejs = nodejs-12_x; production = false; } rec {
   pname = name;
 
   nativeBuildInputs = [

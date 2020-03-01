@@ -16,7 +16,7 @@ in
 
   virtualisation.qemu.networkingOptions = [
     "-hdb $(readlink -f ${disk})"
-    "$((test -e ${disk} || qemu-img create ${disk} 6G) >/dev/null 2>/dev/null)"
+    "$((test -e ${disk} || qemu-img create ${disk} 10G) >/dev/null 2>/dev/null)"
   ];
 
   environment.systemPackages = [

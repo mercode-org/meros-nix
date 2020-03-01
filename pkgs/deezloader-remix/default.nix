@@ -20,7 +20,7 @@ let
     sha256 = srcData.sha256;
   };
 in
-mkNode { root = "${src}/app"; nodejs = nodejs-12_x; } rec {
+mkNode { root = "${src}/app"; packageLock = ./app-package-lock.json; nodejs = nodejs-12_x; } rec {
   pname = name;
 
   nativeBuildInputs = [
