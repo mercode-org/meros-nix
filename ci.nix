@@ -10,7 +10,7 @@ in
 {
   # inherit (merOS) isoAll; # disabled since using a lot of resources for nothing, mostly
 
-  vm = makeScope {
+  vm = {
     cinnamonVm = merOS.cinnamon.vm;
     lxdeVm = merOS.lxde.vm;
     mateVm = merOS.mate.vm;
