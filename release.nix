@@ -110,4 +110,6 @@ rec {
   allChannels = _channels.createMergedOutput (builtins.attrValues channels);
 
   tests = import ./tests/tests.nix;
+
+  inherit nixpkgs;
 }
