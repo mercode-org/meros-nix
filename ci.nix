@@ -17,6 +17,6 @@ in
     xfceVm = merOS.xfce.vm;
   };
 
-  tests = makeScope (merOS.tests {});
-  pkgs = makeScope (merOS.pkgs);
+  tests = (merOS.tests {});
+  pkgs = (merOS.pkgs);
 }
