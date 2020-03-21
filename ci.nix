@@ -5,18 +5,19 @@ let
   pkgs = nixpkgs.pkgs;
   lib = nixpkgs.lib;
 
-  makeScope = el: lib.makeScope pkgs.newScope (self: el);
+  r = attr:
+    { recurseForDerivations = true; } // attr;
 in
 {
   # inherit (merOS) isoAll; # disabled since using a lot of resources for nothing, mostly
 
-  vm = {
+  vm = r {
     cinnamonVm = merOS.cinnamon.vm;
     lxdeVm = merOS.lxde.vm;
     mateVm = merOS.mate.vm;
     xfceVm = merOS.xfce.vm;
   };
 
-  tests = (merOS.tests {});
-  pkgs = (merOS.pkgs);
+  tests = r (merOS.tests {});
+  pkgs = r (merOS.pkgs);
 }
