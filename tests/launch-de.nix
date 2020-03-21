@@ -13,7 +13,7 @@ mkTest = deName: import "${import ../lib/nixpkgs.nix}/nixos/tests/make-test.nix"
 
       environment.systemPackages = [ (with pkgs; stdenv.mkDerivation rec {
         name = "test-start";
-        pname = name;
+        dontUnpack = true;
 
         desktopItemAutostart = makeDesktopItem {
           name = name;
