@@ -1,10 +1,6 @@
 let
   merOS = import ./release.nix;
 
-  nixpkgs = import merOS.nixpkgs {};
-  pkgs = nixpkgs.pkgs;
-  lib = nixpkgs.lib;
-
   r = attr:
     { recurseForDerivations = true; } // attr;
 in
