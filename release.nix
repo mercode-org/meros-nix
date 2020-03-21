@@ -68,11 +68,12 @@ rec {
     nixos =
       let
         ghSrc = builtins.fromJSON (builtins.readFile ./lib/nixpkgs.json);
-        src = "${import ./lib/nixpkgs.nix}/nixos";
+        src = import ./lib/nixpkgs.nix;
       in
       _channels.createChannel {
         channelName = "nixos";
         binaryCache = "cache.nixos.org";
+        postCmd = "ln -s . nixpkgs";
         inherit ghSrc src;
       };
     nixos-hardware =
