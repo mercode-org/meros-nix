@@ -16,6 +16,11 @@ let
   webkit2-launcher = pkgs.callPackage ./webkit2-launcher { };
   meros-slideshow = pkgs.callPackage ./meros-slide { };
 
+  recursiveIterateRecreate = set: iter:
+    builtins.listToAttrs(
+      builtins.concatMap iter (builtins.attrNames set)
+    );
+
 in
 {
   merosNixpkgs = import ../lib/nixpkgs.nix;
@@ -57,5 +62,21 @@ in
     slideshowPackage = meros-slideshow;
   };
 
+  merosBundles = lib.makeScope pkgs.newScope (self:
+    let
+      bundles = (import ../config/base/bundles.nix pkgs).meros.bundle;
+    in
+      recursiveIterateRecreate bundles (key:
+        let
+          value = bundles.${key};
+        in
+          [(lib.nameValuePair key (pkgs.symlinkJoin {
+            name = "meros-bundle-${key}";
+            paths = value.pkgs;
+
+            meta = {
+              description = if lib.hasAttrByPath ["description"] value then value.description else null;
+            };
+          }))]));
   # gnome3 = pkgs.gnome3 // { inherit (installerPkgs) gtk3; };
 } # // installerPkgs

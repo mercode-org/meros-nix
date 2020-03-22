@@ -3,5 +3,7 @@
   "rev": "0dd238b3067e632785ab8697126534beb05fa3c4",
   "date": "2020-01-15T00:35:56+03:00",
   "sha256": "0l5mg9zva475crl6jgvg1ysh0vkwvmwnnnarv7n3ii06ngdmzwxq",
-  "fetchSubmodules": false
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "leaveDotGit": false
 }

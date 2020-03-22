@@ -8,7 +8,7 @@ with lib;
 let
   deterTar = ''
 
-    function deterTar() {
+    function deterTar() { # --mode used to be set here, but fucks shit up because dirs need +x to be read
       find "$1" -print0 \
         | sort -z \
         | tar -cf "$2" \
@@ -16,7 +16,6 @@ let
           --numeric-owner \
           --owner=0 \
           --group=0 \
-          --mode="go-rwx,u-rw" \
           --mtime='1970-01-01' \
           --no-recursion \
           --null \
@@ -39,6 +38,7 @@ in
     , src ? (fetchFromGitHub ghSrc)
 
     , artifactName ? "${channelName}-${gitRevision}"
+    , postCmd ? ""
     }:
 
     stdenv.mkDerivation {
@@ -56,6 +56,7 @@ in
         mkdir -p $out/${channelName}
         echo ${binaryCacheUrl} > $out/${channelName}/binary-cache-url
         echo ${gitRevision} > $out/${channelName}/git-revision
+        ${postCmd}
         mv $PWD /tmp/${artifactName}
         cd /tmp
         deterTar ${artifactName} $out/${channelName}/nixexprs.tar.xz

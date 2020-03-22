@@ -61,7 +61,4 @@ in
     # ntfs ro fix
     (hiPrio ntfs3g)
   ];
-
-  meros.bundle.devTools.pkgs = with pkgs; [ gcc vim cmake gparted ];
-  meros.bundle.editingTools.pkgs = with pkgs; [ gimp inkscape krita ]; # openshot-qt
-}
+} // (import ./bundles.nix pkgs)
