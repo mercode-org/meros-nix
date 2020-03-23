@@ -35,6 +35,7 @@ mkTest = deName: import "${import ../lib/nixpkgs.nix}/nixos/tests/make-test.nix"
       }) ];
 
       services.xserver.desktopManager.${deName}.enable = true;
+      services.xserver.displayManager.lightdm.autoLogin = { enable = true; user = "meros"; };
     };
   };
 

@@ -52,7 +52,7 @@ in
     htop
 
     # browsers
-    chromium
+    # chromium
     firefox
 
     # autostart
