@@ -43,6 +43,7 @@ in
     shotwell
     font-manager
     qpaeq
+    cinnamon.warp
 
     # mer-apps
     merculator
