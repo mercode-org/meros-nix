@@ -23,6 +23,8 @@ with lib;
     };
   };
 
+  boot.loader.grub.theme = pkgs.meros-grub;
+
   environment.systemPackages = with pkgs; [
     # design
     mercode-artworks

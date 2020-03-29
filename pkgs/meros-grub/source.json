@@ -1,0 +1,9 @@
+{
+  "url": "https://github.com/mercode-org/meros-grub",
+  "rev": "48229e070e31947bf4da0657601bde93a2443286",
+  "date": "2020-03-29T20:00:39+03:00",
+  "sha256": "1af9z7bmhwsgil78kmbgmq35rnn2haq5hg8f1sx4pfmz0r9qpzxg",
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "leaveDotGit": false
+}
