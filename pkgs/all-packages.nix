@@ -55,6 +55,7 @@ in
   merost = pkgs.callPackage ./merost {};
   meros-skel-xfce = pkgs.callPackage ./meros-skel-xfce {};
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme {};
+  meros-grub = pkgs.callPackage ./meros-grub {};
 
   nixiquity = installerPkgs.nixiquity;
 
