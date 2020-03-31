@@ -9,6 +9,9 @@ in
 {
   imports = [
     ./../.
+    (mkIf (!config.meros.libre) {
+      nixpkgs.config.allowUnfreePredicate = (x: if x ? meta.license then x.meta.license.shortName == "unfreeRedistributable" else false);
+    })
   ];
 
   # Whitelist wheel users to do anything
