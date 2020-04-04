@@ -35,7 +35,7 @@ mkNode { root = src; packageLock = ./package-lock.json; nodejs = nodejs-12_x; pr
     icon = name;
     desktopName = "Dwarfs";
     comment = meta.description;
-    categories = "Games;";
+    categories = "Game;";
   };
 
   installPhase = ''

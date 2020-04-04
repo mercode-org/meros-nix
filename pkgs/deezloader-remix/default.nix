@@ -34,7 +34,7 @@ mkNode { root = "${src}/app"; packageLock = ./app-package-lock.json; nodejs = no
     icon = name;
     desktopName = "Deezloader Remix";
     comment = meta.description;
-    categories = ";";
+    categories = "AudioVideo;Audio;";
   };
 
   installPhase = ''
