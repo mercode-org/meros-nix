@@ -34,7 +34,7 @@ mkNode { root = src; packageLock = ./package-lock.json; nodejs = nodejs-12_x; } 
     icon = name;
     desktopName = "Distrocards";
     comment = meta.description;
-    categories = "Games;";
+    categories = "Game;";
   };
 
   installPhase = ''

@@ -35,7 +35,7 @@ mkNode { root = src; packageLock = ./package-lock.json; nodejs = nodejs-12_x; } 
     desktopName = "MerOS Welcome";
     genericName = "Welcome";
     comment = meta.description;
-    categories = "Administration;";
+    categories = "Utility;";
   };
 
   desktopItemAutostart = makeDesktopItem {
@@ -45,7 +45,7 @@ mkNode { root = src; packageLock = ./package-lock.json; nodejs = nodejs-12_x; } 
     desktopName = "MerOS Welcome";
     genericName = "Welcome";
     comment = meta.description;
-    categories = "Administration;";
+    categories = "Utility;";
     extraEntries = ''
       NoDisplay=true
       AutostartCondition=unless-exists meros-welcome-hide
