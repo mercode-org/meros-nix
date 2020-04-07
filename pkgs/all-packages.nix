@@ -10,7 +10,7 @@ let
     rev = installerSrcData.rev;
     sha256 = installerSrcData.sha256;
   };
-  installerPkgs = import "${installerSrc}/nix/pkgs.nix" pkgs;
+  nixiquity = lib.recurseIntoAttrs (pkgs.callPackage "${installerSrc}/nix" { });
 
   makeIcon = pkgs.callPackage ./make-icon {};
   webkit2-launcher = pkgs.callPackage ./webkit2-launcher { };
@@ -27,7 +27,7 @@ in
   merosNixosHardware = import ../lib/nixos-hardware.nix;
   meros = lib.cleanSource ../.;
 
-  inherit makeIcon webkit2-launcher meros-slideshow nixNodePackage;
+  inherit makeIcon webkit2-launcher meros-slideshow nixNodePackage nixiquity;
 
   conf-tool = pkgs.callPackage ./conf-tool {
     inherit mkNode;
@@ -57,11 +57,11 @@ in
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme {};
   meros-grub = pkgs.callPackage ./meros-grub {};
 
-  nixiquity = installerPkgs.nixiquity;
+  meros-installer = pkgs.writeShellScriptBin "meros-installer" "Soon™...";
 
-  meros-installer = installerPkgs.nixiquity.override {
+  /* meros-installer = nixiquity.nixiquity.override {
     slideshowPackage = meros-slideshow;
-  };
+  }; */
 
   merosBundles = lib.makeScope pkgs.newScope (self:
     let
