@@ -1,41 +1,41 @@
 # MerOS - Nix
-Meros Nix Channel / NixOS Distro Base Config
+MerOS Nix Channel / NixOS Distro Base Config
 
-# Usage
+## Usage
 
-This config is mainly used by meros images and will later be provided to users as a nix channel
+This config is mainly used by MerOS images and will later be provided to users as a nix channel.
 
-# Building the ISO / Running the VM
+## Building the ISO / Running the VM
 
-Replace `DE` with either xfce, mate or cinnamon
+Replace `DE` with either `xfce`, `mate` or `cinnamon`.
 
-## Install Nix on your running system
+### Install Nix on your running system
 
 ```
 curl https://nixos.org/nix/install | sh
 ```
 
-## Switch to nix unstable channel
+### Switch to nix unstable channel
 
 ```
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 nix-channel --update
 ```
 
-## Enable the meros cache
+### Enable the MerOS cache
 
 ```
 nix-env -iA cachix -f https://cachix.org/api/v1/install
 cachix use meros
 ```
 
-## Start a VM with qemu
+### Start a VM with qemu
 
 ```
 make start-vm-DE
 ```
 
-## Build the ISO
+### Build the ISO
 
 ```
 make build-iso-DE
