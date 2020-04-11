@@ -57,9 +57,17 @@ in
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme {};
   meros-grub = pkgs.callPackage ./meros-grub {};
 
-  meros-installer = nixinstall.nixinstall.override {
+  meros-installer = (nixinstall.nixinstall.override {
     slideshowPackage = meros-slideshow;
-  };
+  }).overrideAttrs(pkg: pkg // {
+    name = "meros-installer";
+
+    postFixup = ''
+      ln -s $out/bin/io.elementary.installer $out/bin/meros-installer
+      sed -i "s|io.elementary.installer|meros-installer|g" -i $out/share/applications/*
+      sed -i "s| *lementary *[oO]*[sS]*| merOS|g" -i $out/share/applications/*
+    '';
+  });
 
   merosBundles = lib.makeScope pkgs.newScope (self:
     let
