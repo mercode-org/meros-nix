@@ -3,14 +3,14 @@ let
   nixNodePackage = pkgs.callPackage ./nix-node-package.nix {};
   mkNode = import "${nixNodePackage}/nix/default.nix" pkgs;
 
-  installerSrcData = builtins.fromJSON (builtins.readFile ./nixiquity/source.json);
+  installerSrcData = builtins.fromJSON (builtins.readFile ./nixinstall/source.json);
   installerSrc = pkgs.fetchFromGitHub {
-    repo = "nixiquity";
+    repo = "nixinstall";
     owner = "mercode-org";
     rev = installerSrcData.rev;
     sha256 = installerSrcData.sha256;
   };
-  installerPkgs = import "${installerSrc}/nix/pkgs.nix" pkgs;
+  nixinstall = lib.recurseIntoAttrs (pkgs.callPackage "${installerSrc}/nix" { });
 
   makeIcon = pkgs.callPackage ./make-icon {};
   webkit2-launcher = pkgs.callPackage ./webkit2-launcher { };
@@ -27,7 +27,7 @@ in
   merosNixosHardware = import ../lib/nixos-hardware.nix;
   meros = lib.cleanSource ../.;
 
-  inherit makeIcon webkit2-launcher meros-slideshow nixNodePackage;
+  inherit makeIcon webkit2-launcher meros-slideshow nixNodePackage nixinstall;
 
   conf-tool = pkgs.callPackage ./conf-tool {
     inherit mkNode;
@@ -57,11 +57,17 @@ in
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme {};
   meros-grub = pkgs.callPackage ./meros-grub {};
 
-  nixiquity = installerPkgs.nixiquity;
-
-  meros-installer = installerPkgs.nixiquity.override {
+  meros-installer = (nixinstall.nixinstall.override {
     slideshowPackage = meros-slideshow;
-  };
+  }).overrideAttrs(pkg: pkg // {
+    name = "meros-installer";
+
+    postFixup = ''
+      ln -s $out/bin/io.elementary.installer $out/bin/meros-installer
+      sed -i "s|io.elementary.installer|meros-installer|g" -i $out/share/applications/*
+      sed -i "s| *lementary *[oO]*[sS]*| merOS|g" -i $out/share/applications/*
+    '';
+  });
 
   merosBundles = lib.makeScope pkgs.newScope (self:
     let
