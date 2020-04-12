@@ -34,6 +34,7 @@ in
     wget
     gnome3.gnome-disk-utility
     ark
+    psmisc
     htop
     tree
 
