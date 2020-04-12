@@ -33,12 +33,13 @@ in
     curl
     wget
     gnome3.gnome-disk-utility
+    ark
+    htop
+    tree
 
     # apps
     cinnamon.nemo
     libreoffice
-    flameshot
-    atom
     wine
     shotwell
     font-manager
@@ -48,9 +49,6 @@ in
     # mer-apps
     merculator
     distrocards
-
-    # utils
-    htop
 
     # browsers
     # chromium
