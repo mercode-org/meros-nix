@@ -37,6 +37,8 @@ in
     psmisc
     htop
     tree
+    gnome3.nautilus
+    gnome3.gnome-system-monitor
 
     # apps
     cinnamon.nemo
