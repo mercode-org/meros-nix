@@ -34,7 +34,7 @@ in
   };
 
   merculator = pkgs.callPackage ./merculator {
-    inherit mkNode makeIcon;
+    inherit makeIcon webkit2-launcher;
   };
   meros-welcome = pkgs.callPackage ./meros-welcome-legacy {
     inherit mkNode makeIcon;
