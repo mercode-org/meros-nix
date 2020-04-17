@@ -1,31 +1,35 @@
 { fetchFromGitHub
 , stdenv
-, mkNode
-, nodejs-12_x
 , makeWrapper
-, electron_6
 , makeDesktopItem
 , makeIcon
+, webkit2-launcher
 }:
 
 with (builtins);
 
 let
   srcData = fromJSON (readFile ./source.json);
-  name = "meros-welcome-legacy";
+  name = "meros-welcome";
+in
+stdenv.mkDerivation rec {
+  pname = name;
+  version = "0.0.1";
+
   src = fetchFromGitHub {
-    repo = name;
+    repo = "meros-welcome"; # name;
     owner = "mercode-org";
     rev = srcData.rev;
     sha256 = srcData.sha256;
   };
-in
-mkNode { root = src; packageLock = ./package-lock.json; nodejs = nodejs-12_x; } rec {
-  pname = name;
 
   nativeBuildInputs = [
     makeWrapper
     makeIcon
+  ];
+
+  buildInputs = [
+    webkit2-launcher
   ];
 
   desktopItem = makeDesktopItem {
@@ -54,10 +58,13 @@ mkNode { root = src; packageLock = ./package-lock.json; nodejs = nodejs-12_x; } 
   };
 
   installPhase = ''
-    makeWrapper '${electron_6}/bin/electron' "$out/bin/${name}" \
+    cp -rp $PWD $out
+    rm $out/README* $out/package-lock.json
+
+    makeWrapper '${webkit2-launcher}/bin/webkit2-launcher' "$out/bin/${name}" \
       --add-flags "$out"
 
-    makeIcon assets/icon.png meros-welcome-legacy
+    makeIcon assets/icon.png meros-welcome
     install -D "${desktopItem}/share/applications/${name}.desktop" "$out/share/applications/${name}.desktop"
     install -D "${desktopItemAutostart}/share/applications/${name}.desktop" "$out/etc/xdg/autostart/meros-welcome-at-login.desktop"
   '';
@@ -67,6 +74,6 @@ mkNode { root = src; packageLock = ./package-lock.json; nodejs = nodejs-12_x; } 
     homepage = https://github.com/mercode-org/meros-welcome-legacy;
     license = licenses.gpl3;
     maintainers = with maintainers; [ mkg20001 ];
-    inherit (electron_6.meta) platforms;
+    # inherit (webkit2-launcher.meta) platforms;
   };
 }

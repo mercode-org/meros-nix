@@ -37,7 +37,7 @@ in
     inherit makeIcon webkit2-launcher;
   };
   meros-welcome = pkgs.callPackage ./meros-welcome-legacy {
-    inherit mkNode makeIcon;
+    inherit makeIcon webkit2-launcher;
   };
   distrocards = pkgs.callPackage ./distrocards {
     inherit mkNode makeIcon;
