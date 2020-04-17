@@ -1,8 +1,8 @@
 {
   "url": "https://github.com/mercode-org/mercode-artworks",
-  "rev": "b0becf2126416973df6a42857e1b14eaae38bfa4",
-  "date": "2020-03-08T14:24:55+03:00",
-  "sha256": "03c0j2zb950yddvslwfm42vax3ml5h602bs0v5lkz67sb5if7bfp",
+  "rev": "c57984a90260ff7b49f77ee0df5de63a35780a9f",
+  "date": "2020-04-10T02:21:59+03:00",
+  "sha256": "1202346wd3y0nqpwy4w1ip71kl8766l8nv8qwzk8xbv98y58lv2i",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false
