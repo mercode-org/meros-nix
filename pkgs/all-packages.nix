@@ -65,7 +65,7 @@ in
     postFixup = ''
       ln -s $out/bin/io.elementary.installer $out/bin/meros-installer
       sed -i "s|io.elementary.installer|meros-installer|g" -i $out/share/applications/*
-      sed -ir 's|( *)[eE]*lementary *[oO]*[sS]*|(\1)merOS|g' -i $out/share/applications/*
+      sed -ir 's|( *)[eE]*lementary *[oO]*[sS]*|\0merOS|g' -i $out/share/applications/*
     '';
   });
 
