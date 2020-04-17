@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=merculator
+Terminal=false
+Name=Merculator
+Categories=Science;
+Icon=merculator
+Comment=A scientific calculator made for MerOS
+GenericName=Calculator
+X-XFCE-Source=file:///run/current-system/sw/share/applications/merculator.desktop

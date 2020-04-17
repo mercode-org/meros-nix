@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=Discord
+Terminal=false
+Name=Discord
+Categories=Network;InstantMessaging;
+Icon=discord
+GenericName=All-in-one cross-platform voice and text chat for gamers
+MimeType=x-scheme-handler/discord
+X-XFCE-Source=file:///home/yutyo/.nix-profile/share/applications/discord.desktop

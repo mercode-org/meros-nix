@@ -1,0 +1,21 @@
+[Desktop Entry]
+Version=1.0
+Name=Xfce Terminal
+Name[tr]=Xfce Uçbirim
+Comment=Terminal Emulator
+Comment[tr]=Uçbirim Öykünücüsü
+GenericName=Terminal Emulator
+GenericName[tr]=Uçbirim Öykünücüsü
+Exec=xfce4-terminal
+Icon=utilities-terminal
+Terminal=false
+Type=Application
+Categories=GTK;System;TerminalEmulator;
+StartupNotify=true
+Actions=preferences;
+X-XFCE-Source=file:///run/current-system/sw/share/applications/xfce4-terminal.desktop
+
+[Desktop Action preferences]
+Name=Terminal Preferences
+Name[tr]=Uçbirim Tercihleri
+Exec=xfce4-terminal --preferences

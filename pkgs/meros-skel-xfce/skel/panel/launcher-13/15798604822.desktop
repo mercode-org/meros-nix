@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Atom
+Comment=A hackable text editor for the 21st Century.
+GenericName=Text Editor
+Exec=/nix/store/c9pr6v3qhksdgvx9h3j2c0mkf10k2hza-atom-1.42.0/bin/atom
+Icon=atom
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;TextEditor;Development;
+MimeType=text/plain;
+StartupWMClass=atom
+X-XFCE-Source=file:///run/current-system/sw/share/applications/atom.desktop

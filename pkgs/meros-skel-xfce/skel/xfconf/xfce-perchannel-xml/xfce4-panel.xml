@@ -12,14 +12,16 @@
       <property name="size" type="uint" value="30"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="1"/>
-        <value type="int" value="3"/>
-        <value type="int" value="4"/>
-        <value type="int" value="12"/>
-        <value type="int" value="11"/>
-        <value type="int" value="6"/>
-        <value type="int" value="14"/>
-        <value type="int" value="5"/>
         <value type="int" value="13"/>
+        <value type="int" value="3"/>
+        <value type="int" value="15"/>
+        <value type="int" value="4"/>
+        <value type="int" value="6"/>
+        <value type="int" value="11"/>
+        <value type="int" value="16"/>
+        <value type="int" value="17"/>
+        <value type="int" value="5"/>
+        <value type="int" value="12"/>
       </property>
       <property name="background-style" type="uint" value="1"/>
       <property name="background-rgba" type="array">
@@ -52,7 +54,17 @@
     </property>
   </property>
   <property name="plugins" type="empty">
-    <property name="plugin-3" type="string" value="tasklist"/>
+    <property name="plugin-3" type="string" value="tasklist">
+      <property name="show-handle" type="bool" value="false"/>
+      <property name="show-labels" type="bool" value="true"/>
+      <property name="flat-buttons" type="bool" value="false"/>
+      <property name="grouping" type="uint" value="0"/>
+      <property name="sort-order" type="uint" value="3"/>
+    </property>
+    <property name="plugin-15" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
     <property name="plugin-4" type="string" value="pager">
       <property name="rows" type="uint" value="1"/>
     </property>
@@ -73,7 +85,6 @@
       </property>
       <property name="square-icons" type="bool" value="true"/>
       <property name="show-frame" type="bool" value="false"/>
-      <property name="size-max" type="uint" value="22"/>
     </property>
     <property name="plugin-1" type="string" value="whiskermenu"/>
     <property name="plugin-2" type="string" value="showdesktop"/>
@@ -84,6 +95,7 @@
       <property name="items" type="array">
         <value type="string" value="15798695361.desktop"/>
       </property>
+      <property name="disable-tooltips" type="bool" value="false"/>
     </property>
     <property name="plugin-9" type="string" value="launcher">
       <property name="items" type="array">
@@ -95,15 +107,18 @@
         <value type="string" value="15798695663.desktop"/>
       </property>
     </property>
-    <property name="plugin-11" type="string" value="battery"/>
-    <property name="plugin-12" type="string" value="pulseaudio">
-      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+    <property name="plugin-11" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-12" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-13" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-14" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
+    <property name="plugin-16" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
     </property>
+    <property name="plugin-17" type="string" value="battery"/>
   </property>
 </channel>
