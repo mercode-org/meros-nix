@@ -1,8 +1,8 @@
 {
   "url": "https://github.com/mercode-org/distrocards",
-  "rev": "d52b81c12272bc1ce9570469226369ccd4788e39",
-  "date": "2020-01-21T16:51:55+03:00",
-  "sha256": "1r6p033vg7a8j7r3y09vvdqa29jzwlph96i5qc1wj82grg78s0yy",
+  "rev": "0ec6a88b2312fe5a2f6c5dc2279b75fe8de109e5",
+  "date": "2020-04-17T09:24:37+03:00",
+  "sha256": "0fzcppflian0a9m6mw72pq7qk9hwylx92687d0k4j6ykhn93i0w0",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false

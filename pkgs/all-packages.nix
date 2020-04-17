@@ -40,7 +40,7 @@ in
     inherit makeIcon webkit2-launcher;
   };
   distrocards = pkgs.callPackage ./distrocards {
-    inherit mkNode makeIcon;
+    inherit makeIcon webkit2-launcher;
   };
   deezloader-remix = pkgs.callPackage ./deezloader-remix {
     inherit mkNode makeIcon;
