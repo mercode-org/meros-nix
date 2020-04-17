@@ -44,7 +44,7 @@ stdenv.mkDerivation rec {
 
   desktopItemAutostart = makeDesktopItem {
     name = name;
-    exec = "${name} --at-login";
+    exec = "${name}"; # --at-login
     icon = name;
     desktopName = "MerOS Welcome";
     genericName = "Welcome";
