@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
   version = "0.0.1";
 
   src = fetchFromGitHub {
-    repo = "meros-welcome"; # name;
+    repo = name;
     owner = "mercode-org";
     rev = srcData.rev;
     sha256 = srcData.sha256;

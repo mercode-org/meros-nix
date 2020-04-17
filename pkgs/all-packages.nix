@@ -36,7 +36,7 @@ in
   merculator = pkgs.callPackage ./merculator {
     inherit makeIcon webkit2-launcher;
   };
-  meros-welcome = pkgs.callPackage ./meros-welcome-legacy {
+  meros-welcome = pkgs.callPackage ./meros-welcome {
     inherit makeIcon webkit2-launcher;
   };
   distrocards = pkgs.callPackage ./distrocards {
