@@ -9,7 +9,7 @@ with lib;
       enable = true;
     };
 
-    boot.kernelPackages = if config.meros.libre then pkgs.linuxPackages_latest-libre else pkgs.linuxPackages_latest;
+    boot.kernelPackages = if config.meros.libre then pkgs.linuxPackages-libre else pkgs.linuxPackages; # uses latest LTS (currently 5.4)
 
     services.xserver = {
       enable = true;
