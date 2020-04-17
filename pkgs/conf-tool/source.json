@@ -1,8 +1,8 @@
 {
   "url": "https://github.com/mercode-org/conf-tool",
-  "rev": "4adbcb20dea61069dbce374e09cf2a56d6a0a879",
-  "date": "2020-03-23T11:47:37+01:00",
-  "sha256": "043ch2wzcjjk4ksi59fp0k0l2cbkmpda9cjmfds8lycilf2y7704",
+  "rev": "bca867406ab5a0f0e94453a7f99ce5607225397f",
+  "date": "2020-04-14T01:10:07+02:00",
+  "sha256": "1zq92xj221rlfrpz4fvjkh981wgcwgi9iv07l1vhk1xg0kn8wp9s",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false
