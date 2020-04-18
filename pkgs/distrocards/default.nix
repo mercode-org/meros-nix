@@ -1,11 +1,9 @@
 { fetchFromGitHub
 , stdenv
-, mkNode
-, nodejs-12_x
 , makeWrapper
-, electron_6
 , makeDesktopItem
 , makeIcon
+, webkit2-launcher
 }:
 
 with (builtins);
@@ -13,19 +11,25 @@ with (builtins);
 let
   srcData = fromJSON (readFile ./source.json);
   name = "distrocards";
+in
+stdenv.mkDerivation rec {
+  pname = name;
+  version = "0.0.1";
+
   src = fetchFromGitHub {
     repo = name;
     owner = "mercode-org";
     rev = srcData.rev;
     sha256 = srcData.sha256;
   };
-in
-mkNode { root = src; packageLock = ./package-lock.json; nodejs = nodejs-12_x; } rec {
-  pname = name;
 
   nativeBuildInputs = [
     makeWrapper
     makeIcon
+  ];
+
+  buildInputs = [
+    webkit2-launcher
   ];
 
   desktopItem = makeDesktopItem {
@@ -40,7 +44,10 @@ mkNode { root = src; packageLock = ./package-lock.json; nodejs = nodejs-12_x; } 
   installPhase = ''
     runHook preInstall
 
-    makeWrapper '${electron_6}/bin/electron' "$out/bin/${name}" \
+    cp -rp $PWD $out
+    rm $out/README* $out/package-lock.json
+
+    makeWrapper '${webkit2-launcher}/bin/webkit2-launcher' "$out/bin/${name}" \
       --add-flags "$out"
 
     makeIcon assets/icon.png distrocards
@@ -54,6 +61,6 @@ mkNode { root = src; packageLock = ./package-lock.json; nodejs = nodejs-12_x; } 
     homepage = https://github.com/mercode-org/distrocards;
     license = licenses.gpl3;
     maintainers = with maintainers; [ mkg20001 ];
-    inherit (electron_6.meta) platforms;
+    # inherit (webkit2-launcher.meta) platforms;
   };
 }

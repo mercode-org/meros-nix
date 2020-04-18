@@ -49,12 +49,18 @@ do_cron() {
 
   log "Building isos..."
   do_build "$NIX_FILE" isoAll "$out_name-iso"
-  ln -vsf "$RESULT" "$out_folder/iso"
+  if [ ! -e "$out_folder/.linked" ]; then
+    ln -vsf "$RESULT" "$out_folder/iso"
+  fi
 
   log "Building channels..."
   do_build "$NIX_FILE" allChannels "$out_name-channels"
-  ln -vsf "$RESULT"/* "$out_folder"
+  if [ ! -e "$out_folder/.linked" ]; then
+    ln -vsf "$RESULT"/* "$out_folder"
+  fi
   popd
+
+  touch "$out_folder/.linked"
 
   log "All done!"
 }

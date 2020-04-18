@@ -34,13 +34,13 @@ in
   };
 
   merculator = pkgs.callPackage ./merculator {
-    inherit mkNode makeIcon;
+    inherit makeIcon webkit2-launcher;
   };
-  meros-welcome = pkgs.callPackage ./meros-welcome-legacy {
-    inherit mkNode makeIcon;
+  meros-welcome = pkgs.callPackage ./meros-welcome {
+    inherit makeIcon webkit2-launcher;
   };
   distrocards = pkgs.callPackage ./distrocards {
-    inherit mkNode makeIcon;
+    inherit makeIcon webkit2-launcher;
   };
   deezloader-remix = pkgs.callPackage ./deezloader-remix {
     inherit mkNode makeIcon;
@@ -65,7 +65,7 @@ in
     postFixup = ''
       ln -s $out/bin/io.elementary.installer $out/bin/meros-installer
       sed -i "s|io.elementary.installer|meros-installer|g" -i $out/share/applications/*
-      sed -i "s| *lementary *[oO]*[sS]*| merOS|g" -i $out/share/applications/*
+      sed -ir 's|( *)[eE]*lementary *[oO]*[sS]*|\0merOS|g' -i $out/share/applications/*
     '';
   });
 

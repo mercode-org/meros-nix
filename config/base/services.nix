@@ -14,6 +14,9 @@ makeDefault {
   services.flatpak.enable = true;
   xdg.portal.enable = true;
 
+  # GVFS - pretty essential service, many apps need it for stuff like trash
+  services.gvfs.enable = true;
+
   # Faster boot through entropy seeding
   services.haveged.enable = true;
 
@@ -54,6 +57,7 @@ makeDefault {
     ];
 
     # this enables avahi+browsed autodiscover
+    # TODO: rework, this was mostly written "catch-all" style
     browsing = true;
     defaultShared = true;
     extraConf = ''

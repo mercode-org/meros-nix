@@ -28,4 +28,11 @@ with lib;
 
   virtualisation.virtualbox.guest = { enable = true; x11 = true; };
   services.qemuGuest.enable = true;
+
+  isoImage.appendItems = [
+    { class = "installer-persistent"; params = "boot.persistence=/dev/disk/by-label/meros-portable"; }
+    { class = "nomodeset-persistent"; params = "boot.persistence=/dev/disk/by-label/meros-portable nomodeset"; }
+    { class = "copytoram-persistent"; params = "boot.persistence=/dev/disk/by-label/meros-portable copytoram"; }
+    { class = "debug-persistent";     params = "boot.persistence=/dev/disk/by-label/meros-portable debug"; }
+  ];
 }

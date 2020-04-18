@@ -9,7 +9,7 @@ start-vm-&DE: build-vm-&DE
 .PHONY: build-installer-vm-&DE start-installer-vm-&DE
 build-installer-vm-&DE:
 	nix-build release.nix -A &DE.installerVm -j auto -Q
-start-installer-vm-&DE: build-installer-vm-&DE install.img
+start-installer-vm-&DE: build-installer-vm-&DE
 	nix -j auto run -f release.nix &DE.installerVm -c run-nixos-vm
 
 
