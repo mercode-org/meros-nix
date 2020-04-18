@@ -14,6 +14,9 @@ makeDefault {
   services.flatpak.enable = true;
   xdg.portal.enable = true;
 
+  # GVFS
+  services.gvfs.enable = true;
+
   # Faster boot through entropy seeding
   services.haveged.enable = true;
 
