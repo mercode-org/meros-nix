@@ -56,6 +56,7 @@ in
   meros-skel-xfce = pkgs.callPackage ./meros-skel-xfce {};
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme {};
   meros-grub = pkgs.callPackage ./meros-grub {};
+  screenshot-tool = pkgs.callPackage ./screenshot-tool {};
 
   meros-installer = (nixinstall.nixinstall.override {
     slideshowPackage = meros-slideshow;
