@@ -11,8 +11,9 @@ glob_copy() {
   while true; do
     shift
     if [ -z "$1" ]; then
-      return 0
+      return 1
     fi
+
     if [ -e "$1" ]; then
       cat "$1" > "$DEST/$(basename $1)"
       return 0
@@ -24,7 +25,7 @@ glob_copy() {
 
 mkdir -p "$out"
 
-if [ ! -z "$input/share/applications" ]; then
+if [ ! -z "$input/share/applications" ]; then # TODO: more criteria to correctly match
   echo 1 > "$out/isGui"
 
   screenshot-tool "$id" "$out/screenshot.png" || /bin/true
