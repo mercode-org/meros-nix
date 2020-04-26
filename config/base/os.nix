@@ -10,6 +10,7 @@ with lib;
     };
 
     boot.kernelPackages = if config.meros.libre then pkgs.linuxPackages-libre else pkgs.linuxPackages; # uses latest LTS (currently 5.4)
+    hardware.enableRedistributableFirmware = !config.meros.libre;
 
     services.xserver = {
       enable = true;
