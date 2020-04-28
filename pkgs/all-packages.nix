@@ -57,6 +57,9 @@ in
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme {};
   meros-grub = pkgs.callPackage ./meros-grub {};
 
+  meros-skel-cinnamon = pkgs.callPackage ./meros-skel-cinnamon {
+    inherit meros-skel-base;
+  };
   meros-skel-mate = pkgs.callPackage ./meros-skel-mate {
     inherit meros-skel-base;
   };
