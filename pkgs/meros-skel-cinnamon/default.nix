@@ -1,5 +1,6 @@
 { fetchFromGitHub
 , stdenv
+, meros-skel-base
 }:
 
 stdenv.mkDerivation rec {
@@ -9,6 +10,7 @@ stdenv.mkDerivation rec {
   src = ./skel;
 
   installPhase = ''
-    cp -rp $PWD $out
+    mkdir -p $out
+    find $PWD ${meros-skel-base} -maxdepth 1 -mindepth 1 -exec cp -r {} $out \;
   '';
 }
