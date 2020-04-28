@@ -1,8 +1,8 @@
 {
   "url": "https://github.com/mercode-org/papirus-mer-icon-theme",
-  "rev": "e4aaa413e8878e28b5fc42eb2e2bb0ee5b95e628",
-  "date": "2020-01-31T23:41:43+03:00",
-  "sha256": "1vhadi7m3slin9n71p7dlxfw6swzbh42zsn5nhznkq28ncg5ppi2",
+  "rev": "13022a72aab2f358d28fb526fb2eb032db2e598a",
+  "date": "2020-04-19T17:14:55+03:00",
+  "sha256": "1j1h3p0q2sajdj1q1h6l323d9cbh022w4cz86bz73jl4y3y6da2i",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false
