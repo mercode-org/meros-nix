@@ -1,8 +1,8 @@
 {
   "url": "https://github.com/mercode-org/nixinstall",
-  "rev": "f0940c97536bf4674f2ffd6b60b26b84c8f31d15",
-  "date": "2020-04-18T13:17:35+02:00",
-  "sha256": "0gqdxlvy4f77fbs5kvljc6p374swpghwa5jlj6y5pswrr1p8yb5v",
+  "rev": "3b169009fe157c90a304a37ffe6af8889000d40e",
+  "date": "2020-04-20T10:53:28+02:00",
+  "sha256": "09p5x62gfkjsm6skxng57wjkxid74nd0jmb3mlabchr0si72vdnn",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false

@@ -1,8 +1,8 @@
 {
   "url": "https://github.com/mercode-org/meros-welcome",
-  "rev": "b2ab73c31e0aa1616797f7ab38ce50bf8bcee9eb",
-  "date": "2020-04-06T00:29:09+03:00",
-  "sha256": "1jpnv1q5aay41jzi9jf8h17ggg0qrv7jd6wj1khlnydvsy03s73c",
+  "rev": "1fd593407bde3d7a3f8f801800a7a4a94e977f7c",
+  "date": "2020-04-19T23:25:33+03:00",
+  "sha256": "06dgp528scw5dg4knnnfzspsnkcrv26igcm7x0rhww7y1qzb0ixa",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false
