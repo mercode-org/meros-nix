@@ -1,8 +1,8 @@
 {
   "url": "https://github.com/mercode-org/webkit2-launcher",
-  "rev": "4369ab19a7024b231fa6e610ffa03ae986222e49",
-  "date": "2020-02-02T18:20:07+01:00",
-  "sha256": "1yrch7p0bqg6z4q9f1adripif98cwnjlh6lzjh7avzwfwb1sjavw",
+  "rev": "2be3a4941188b9913017ca4fe9b1ba84baf72263",
+  "date": "2020-04-22T12:55:06+02:00",
+  "sha256": "0w2wqh98dw366cz345lvrnpa964j4sxxkmp0ns6f28nqsfza2arv",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false

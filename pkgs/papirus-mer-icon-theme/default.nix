@@ -32,14 +32,11 @@ stdenv.mkDerivation rec {
     hicolor-icon-theme
   ];
 
-  postFixup =  ''
-    gtk-update-icon-cache $out/share/icons/papirus-mer
-  '';
+  /* postFixup =  ''
+    gtk-update-icon-cache $out/share/icons/*
+  ''; */
 
   dontDropIconThemeCache = true;
 
-  installPhase = ''
-    mkdir -p $out/share/icons
-    cp -rp $PWD/Papirus-Mer $out/share/icons/papirus-mer
-  '';
+  makeFlags = [ "PREFIX=$(out)" ];
 }

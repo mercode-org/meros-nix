@@ -15,6 +15,6 @@ mkIf config.services.xserver.desktopManager.xfce.enable {
   environment.skel = pkgs.meros-skel-xfce;
 
   # set pam skel
-  security.pam.makeHomeDir.skelDirectory = pkgs.meros-skel;
+  security.pam.makeHomeDir.skelDirectory = pkgs.meros-skel-xfce;
 
 }
