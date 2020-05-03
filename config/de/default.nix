@@ -5,8 +5,8 @@ with lib;
 {
   imports = [
     ./cinnamon
-    ./lxde
     ./mate
+    ./pantheon
     ./xfce
   ];
 }

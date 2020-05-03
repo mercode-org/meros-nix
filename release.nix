@@ -41,8 +41,8 @@ rec {
   inherit pkgs;
 
   cinnamon = osConfig { de = "cinnamon"; };
-  lxde = osConfig { de = "lxde"; };
   mate = osConfig { de = "mate"; };
+  pantheon = osConfig { de = "pantheon"; };
   xfce = osConfig { de = "xfce"; };
 
   isoAll = _nixpkgs.stdenv.mkDerivation {
@@ -55,10 +55,10 @@ rec {
       mkdir $out
       ln -sv ${cinnamon.iso} $out/cinnamon
       ln -sv ${cinnamon.iso}/iso/* $out/cinnamon.iso
-      ln -sv ${lxde.iso} $out/lxde
-      ln -sv ${lxde.iso}/iso/* $out/lxde.iso
       ln -sv ${mate.iso} $out/mate
       ln -sv ${mate.iso}/iso/* $out/mate.iso
+      ln -sv ${pantheon.iso} $out/pantheon
+      ln -sv ${pantheon.iso}/iso/* $out/pantheon.iso
       ln -sv ${xfce.iso} $out/xfce
       ln -sv ${xfce.iso}/iso/* $out/xfce.iso
     '';

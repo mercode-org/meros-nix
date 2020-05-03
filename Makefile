@@ -6,7 +6,7 @@ update:
 build-all-iso:
 	nix-build release.nix -A isoAll -j auto
 rebuild-makefile: Makefile.template
-	node ./lib/buildMakefile.js ./Makefile.template ./Makefile cinnamon lxde mate xfce
+	node ./lib/buildMakefile.js ./Makefile.template ./Makefile cinnamon mate pantheon xfce
 channels:
 	git rev-parse --verify HEAD > .ref
 	nix-build release.nix -A allChannels
@@ -34,26 +34,6 @@ start-iso-cinnamon: build-iso-cinnamon
 	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
 
 
-.PHONY: build-vm-lxde start-vm-lxde
-build-vm-lxde:
-	nix-build release.nix -A lxde.vm -j auto -Q
-start-vm-lxde: build-vm-lxde
-	nix -j auto run -f release.nix lxde.vm -c run-nixos-vm
-
-.PHONY: build-installer-vm-lxde start-installer-vm-lxde
-build-installer-vm-lxde:
-	nix-build release.nix -A lxde.installerVm -j auto -Q
-start-installer-vm-lxde: build-installer-vm-lxde
-	nix -j auto run -f release.nix lxde.installerVm -c run-nixos-vm
-
-
-.PHONY: build-iso-lxde start-iso-lxde
-build-iso-lxde:
-	nix-build release.nix -A lxde.iso -j auto
-start-iso-lxde: build-iso-lxde
-	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
-
-
 .PHONY: build-vm-mate start-vm-mate
 build-vm-mate:
 	nix-build release.nix -A mate.vm -j auto -Q
@@ -71,6 +51,26 @@ start-installer-vm-mate: build-installer-vm-mate
 build-iso-mate:
 	nix-build release.nix -A mate.iso -j auto
 start-iso-mate: build-iso-mate
+	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
+
+
+.PHONY: build-vm-pantheon start-vm-pantheon
+build-vm-pantheon:
+	nix-build release.nix -A pantheon.vm -j auto -Q
+start-vm-pantheon: build-vm-pantheon
+	nix -j auto run -f release.nix pantheon.vm -c run-nixos-vm
+
+.PHONY: build-installer-vm-pantheon start-installer-vm-pantheon
+build-installer-vm-pantheon:
+	nix-build release.nix -A pantheon.installerVm -j auto -Q
+start-installer-vm-pantheon: build-installer-vm-pantheon
+	nix -j auto run -f release.nix pantheon.installerVm -c run-nixos-vm
+
+
+.PHONY: build-iso-pantheon start-iso-pantheon
+build-iso-pantheon:
+	nix-build release.nix -A pantheon.iso -j auto
+start-iso-pantheon: build-iso-pantheon
 	qemu-system-x86_64 -cdrom result/iso/* -hda install.img -m 2048 -enable-kvm -cpu max -smp 5
 
 

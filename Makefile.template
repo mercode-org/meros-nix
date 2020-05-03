@@ -28,7 +28,7 @@ update:
 build-all-iso:
 	nix-build release.nix -A isoAll -j auto
 rebuild-makefile: Makefile.template
-	node ./lib/buildMakefile.js ./Makefile.template ./Makefile cinnamon lxde mate xfce
+	node ./lib/buildMakefile.js ./Makefile.template ./Makefile cinnamon mate pantheon xfce
 channels:
 	git rev-parse --verify HEAD > .ref
 	nix-build release.nix -A allChannels
