@@ -37,13 +37,23 @@ with lib;
         https://nix.mercode.org/dev/meros meros
       '';
     };
-  };
+  } // (if config.meros.xr then {
+      programs.steam.enable = true;
+    } else {});
 
   options = {
-    meros.libre = mkOption {
-      type = types.bool;
-      description = "Enable libre kernel & remove unfree software";
-      default = false;
+    meros = {
+      libre = mkOption {
+        type = types.bool;
+        description = "Enable libre kernel & remove unfree software";
+        default = false;
+      };
+
+      xr = mkOption {
+        type = types.bool;
+        description = "Enable XRDesktop, SimulaVR & SteamVR";
+        default = false;
+      };
     };
   };
 }

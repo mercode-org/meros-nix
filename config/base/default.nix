@@ -19,6 +19,8 @@ with lib;
     ./software.nix
   ];
 
-  # Disable this, because it breaks stuff
-  networking.wireless.enable = lib.mkForce false;
+  config = {
+    # Disable this, because it breaks stuff
+    networking.wireless.enable = lib.mkForce false;
+  };
 }
