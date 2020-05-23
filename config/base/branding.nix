@@ -10,7 +10,7 @@ with lib;
     greeters.gtk = {
       iconTheme = {
         package = pkgs.papirus-mer;
-        name = "papirus-mer";
+        name = "papirus-mer-classic";
       };
 
       extraConfig = ''

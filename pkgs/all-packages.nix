@@ -15,6 +15,7 @@ let
   makeIcon = pkgs.callPackage ./make-icon {};
   webkit2-launcher = pkgs.callPackage ./webkit2-launcher { };
   meros-slideshow = pkgs.callPackage ./meros-slide { };
+  meros-skel-base = pkgs.callPackage ./meros-skel {};
 
   recursiveIterateRecreate = set: iter:
     builtins.listToAttrs(
@@ -27,7 +28,7 @@ in
   merosNixosHardware = import ../lib/nixos-hardware.nix;
   meros = lib.cleanSource ../.;
 
-  inherit makeIcon webkit2-launcher meros-slideshow nixNodePackage nixinstall;
+  inherit makeIcon webkit2-launcher meros-slideshow nixNodePackage nixinstall meros-skel-base;
 
   conf-tool = pkgs.callPackage ./conf-tool {
     inherit mkNode;
@@ -53,10 +54,19 @@ in
   mercode-artworks = pkgs.callPackage ./mercode-artworks {};
   mer-cursor = pkgs.callPackage ./mer-cursor {};
   merost = pkgs.callPackage ./merost {};
-  meros-skel-xfce = pkgs.callPackage ./meros-skel-xfce {};
   papirus-mer = pkgs.callPackage ./papirus-mer-icon-theme {};
   meros-grub = pkgs.callPackage ./meros-grub {};
   screenshot-tool = pkgs.callPackage ./screenshot-tool {};
+
+  meros-skel-cinnamon = pkgs.callPackage ./meros-skel-cinnamon {
+    inherit meros-skel-base;
+  };
+  meros-skel-mate = pkgs.callPackage ./meros-skel-mate {
+    inherit meros-skel-base;
+  };
+  meros-skel-xfce = pkgs.callPackage ./meros-skel-xfce {
+    inherit meros-skel-base;
+  };
 
   meros-installer = (nixinstall.nixinstall.override {
     slideshowPackage = meros-slideshow;
